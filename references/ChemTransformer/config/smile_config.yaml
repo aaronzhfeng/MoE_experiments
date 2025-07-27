@@ -1,0 +1,24 @@
+device: cuda:0
+pretrained_param_path: 
+inference_param_path: 
+
+model:
+  n_layer: 6
+  n_head: 8
+  d_model: 512
+  d_ff: 2048
+  dropout: 0.1
+
+data:
+  data_root: ./data/USPTO_480K
+  batch_size: 128
+
+training:
+  max_lr: 1.0e-4
+  min_lr: 1.0e-5
+  max_epoch: 50
+  val_interval: 1
+
+output:
+    ckpt_dir: pretrain_ckpt/top6_weight6_{}
+    ckpt_interval: 5
