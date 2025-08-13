@@ -1,0 +1,9 @@
+vocab_size: 512   # token vocabulary size (must match preprocessing vocab)
+hidden: 256       # Transformer hidden size (encoder/decoder)
+layers: 4         # Transformer layers for encoder & decoder
+heads: 8          # Attention heads
+ff: 1024          # Feed-forward dimension
+lr: 0.001         # learning rate
+batch_size: 8
+epochs: 1
+

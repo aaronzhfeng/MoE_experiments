@@ -1,0 +1,23 @@
+batch_size: 8               # batch size for train/valid
+lr: 0.001                   # base learning rate (router/expert share unless using param groups)
+epochs: 1                   # total training epochs
+save_path: runs/moe/best.pt # checkpoint path (.best saved on lowest valid loss)
+
+# Expert model hyperparameters (shared defaults for SMILES/Graph experts)
+hidden: 256                 # Transformer hidden size
+layers: 4                   # Transformer layers (decoder; SMILES has encoder+decoder)
+heads: 8                    # Attention heads
+ff: 1024                    # Feed-forward dimension
+
+# Gating (router)
+top_k: 1                    # Route to top-k experts per sample (1 = hard top-1)
+balance_lambda: 0.01        # Load-balancing loss weight
+balance_lambda_schedule: constant  # constant | linear_warmup (scale balance_lambda over epochs)
+router_warmup_epochs: 0     # Freeze all experts for first N epochs (train router only)
+router_temperature: 1.0     # Softmax temperature on router logits (lower=sharper)
+router_gumbel_noise: false  # Add Gumbel noise to router logits during training
+
+# Expert selection and freezing
+enabled_experts: [smiles, graph, cond, gnn3d]  # Subset of experts to include
+freeze_experts: []             # Experts to keep frozen throughout training
+
