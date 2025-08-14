@@ -9,8 +9,15 @@ from multiprocessing import Pool
 from typing import Dict, List, Tuple
 from utils import parsing
 from utils.data_utils import get_graph_features_from_smi, load_vocab, make_vocab, \
-    tokenize_selfies_from_smiles, tokenize_smiles
+    tokenize_selfies_from_smiles, tokenize_smiles, init_worker
 from utils.train_utils import log_tensor, set_seed, setup_logger
+
+g_vocab = {}
+
+
+def init_worker(vocab: Dict[str, int]):
+    global g_vocab
+    g_vocab = vocab
 
 
 def get_preprocess_parser():
@@ -79,14 +86,12 @@ def get_seq_features_from_line(_args) -> Tuple[np.ndarray, int, np.ndarray, int]
     if i > 0 and i % 10000 == 0:
         logging.info(f"Processing {i}th SMILES")
 
-    global G_vocab
-
     src_tokens = src_line.strip().split()
     if not src_tokens:
         src_tokens = ["C", "C"]             # hardcode to ignore
     tgt_tokens = tgt_line.strip().split()
-    src_token_ids, src_lens = get_token_ids(src_tokens, G_vocab, max_len=max_src_len)
-    tgt_token_ids, tgt_lens = get_token_ids(tgt_tokens, G_vocab, max_len=max_tgt_len)
+    src_token_ids, src_lens = get_token_ids(src_tokens, g_vocab, max_len=max_src_len)
+    tgt_token_ids, tgt_lens = get_token_ids(tgt_tokens, g_vocab, max_len=max_tgt_len)
 
     src_token_ids = np.array(src_token_ids, dtype=np.int32)
     tgt_token_ids = np.array(tgt_token_ids, dtype=np.int32)
@@ -95,7 +100,7 @@ def get_seq_features_from_line(_args) -> Tuple[np.ndarray, int, np.ndarray, int]
 
 
 def binarize_s2s(src_file: str, tgt_file: str, prefix: str, output_path: str,
-                 max_src_len: int, max_tgt_len: int, num_workers: int = 1):
+                 max_src_len: int, max_tgt_len: int, vocab: Dict, num_workers: int = 1):
     output_file = os.path.join(output_path, f"{prefix}.npz")
     logging.info(f"Binarizing (s2s) src {src_file} and tgt {tgt_file}, saving to {output_file}")
 
@@ -108,7 +113,7 @@ def binarize_s2s(src_file: str, tgt_file: str, prefix: str, output_path: str,
     logging.info("Getting seq features")
     start = time.time()
 
-    p = Pool(num_workers)
+    p = Pool(processes=num_workers, initializer=init_worker, initargs=(vocab,))
     seq_features_and_lengths = p.imap(
         get_seq_features_from_line,
         ((i, src_line, tgt_line, max_src_len, max_tgt_len)
@@ -138,7 +143,7 @@ def binarize_s2s(src_file: str, tgt_file: str, prefix: str, output_path: str,
 
 
 def binarize_g2s(src_file: str, tgt_file: str, prefix: str, output_path: str,
-                 max_src_len: int, max_tgt_len: int, num_workers: int = 1):
+                 max_src_len: int, max_tgt_len: int, vocab: Dict, num_workers: int = 1):
     output_file = os.path.join(output_path, f"{prefix}.npz")
     logging.info(f"Binarizing (g2s) src {src_file} and tgt {tgt_file}, saving to {output_file}")
 
@@ -152,7 +157,7 @@ def binarize_g2s(src_file: str, tgt_file: str, prefix: str, output_path: str,
     logging.info("Getting seq features")
     start = time.time()
 
-    p = Pool(num_workers)
+    p = Pool(processes=num_workers, initializer=init_worker, initargs=(vocab,))
     seq_features_and_lengths = p.imap(
         get_seq_features_from_line,
         ((i, src_line, tgt_line, max_src_len, max_tgt_len)
@@ -175,7 +180,7 @@ def binarize_g2s(src_file: str, tgt_file: str, prefix: str, output_path: str,
     logging.info("Getting graph features")
     start = time.time()
 
-    p = Pool(num_workers)
+    p = Pool(processes=num_workers, initializer=init_worker, initargs=(vocab,))
     graph_features_and_lengths = p.imap(
         get_graph_features_from_smi,
         ((i, "".join(line.split()), False) for i, line in enumerate(src_lines))
@@ -255,7 +260,6 @@ def preprocess_main(args):
         logging.info(f"--make_vocab_only flag detected. Skipping featurization")
         exit(0)
 
-    global G_vocab
     G_vocab = load_vocab(vocab_file)
 
     if args.model == "s2s":
@@ -274,6 +278,7 @@ def preprocess_main(args):
                 output_path=args.preprocess_output_path,
                 max_src_len=args.max_src_len,
                 max_tgt_len=args.max_tgt_len,
+                vocab=G_vocab,
                 num_workers=args.num_workers
             )
 
@@ -290,7 +295,5 @@ if __name__ == "__main__":
 
     np.set_printoptions(threshold=sys.maxsize)
     torch.set_printoptions(profile="full")
-
-    G_vocab = {}            # global vocab
 
     preprocess_main(args)

@@ -192,12 +192,18 @@ class G2SMPNEncoder(nn.Module):
         h = self.w_update(agg, h)
         h = torch.relu(h)
         g_embeds = []
-        for st, ln in atom_scope:
-            if isinstance(st, torch.Tensor):
-                st = int(st.item())
-            if isinstance(ln, torch.Tensor):
-                ln = int(ln.item())
-            hi = h[st:st+ln]
+        # atom_scope is a list; each element is an array of [start, length] rows for that sample's segments
+        for scope in atom_scope:
+            if isinstance(scope, torch.Tensor):
+                s = scope.to(device)
+            else:
+                s = torch.as_tensor(scope, device=device)
+            # Derive overall [start, length] covering this sample from first and last rows
+            st = int(s[0, 0].item())
+            last_start = int(s[-1, 0].item())
+            last_len = int(s[-1, 1].item())
+            ln = last_start + last_len - st
+            hi = h[st:st + ln]
             g = hi.mean(dim=0) if ln > 0 else torch.zeros(self.hidden_size, device=device)
             g_embeds.append(g)
         g_embeds = torch.stack(g_embeds, dim=0)

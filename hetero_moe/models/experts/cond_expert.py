@@ -22,8 +22,9 @@ class ConditionExpert(nn.Module):
         if input_ids is None or target_ids is None:
             raise ValueError("ConditionExpert expects 'input_ids' and 'target_ids' in batch")
 
-        x = self.embed(input_ids)
-        logits = self.decoder(x)
+        # Produce logits aligned with target length to avoid shape mismatches
+        x_tgt = self.embed(target_ids)  # [B, T, H]
+        logits = self.decoder(x_tgt)    # [B, T, V]
         loss = F.cross_entropy(logits.view(-1, logits.size(-1)), target_ids.view(-1), ignore_index=0)
         return {"logits": logits, "loss": loss}
 

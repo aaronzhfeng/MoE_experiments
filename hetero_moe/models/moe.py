@@ -29,13 +29,25 @@ class MoEModel(nn.Module):
         total_loss = torch.tensor(0.0, device=assignments.device)
         aux = {"assignments": assignments, "probs": probs, "topk": (topk_idx, topk_probs)}
 
+        batch_size = assignments.shape[0]
+
         # Route indices per expert
         for idx, name in enumerate(self.expert_names):
             mask = (assignments == idx)
             if not torch.any(mask):
                 continue
-            expert_batch = {k: (v[mask] if torch.is_tensor(v) and v.shape[0] == mask.shape[0] else v)
-                            for k, v in batch.items()}
+            # subset tensors (first-dimension equals batch) and also list/tuple fields of batch-size length
+            selected_indices = torch.nonzero(mask, as_tuple=False).squeeze(-1).tolist()
+            expert_batch: Dict = {}
+            for k, v in batch.items():
+                if torch.is_tensor(v) and v.shape[0] == batch_size:
+                    expert_batch[k] = v[mask]
+                elif isinstance(v, list) and len(v) == batch_size:
+                    expert_batch[k] = [v[i] for i in selected_indices]
+                elif isinstance(v, tuple) and len(v) == batch_size:
+                    expert_batch[k] = tuple(v[i] for i in selected_indices)
+                else:
+                    expert_batch[k] = v
             outputs = self.experts[name](expert_batch)
             # Expect outputs to include 'loss'
             total_loss = total_loss + outputs["loss"]
@@ -61,8 +73,17 @@ class MoEModel(nn.Module):
             mask = (assignments == idx)
             if not torch.any(mask):
                 continue
-            expert_batch = {k: (v[mask] if torch.is_tensor(v) and v.shape[0] == mask.shape[0] else v)
-                            for k, v in batch.items()}
+            selected_indices = torch.nonzero(mask, as_tuple=False).squeeze(-1).tolist()
+            expert_batch: Dict = {}
+            for k, v in batch.items():
+                if torch.is_tensor(v) and v.shape[0] == batch_size:
+                    expert_batch[k] = v[mask]
+                elif isinstance(v, list) and len(v) == batch_size:
+                    expert_batch[k] = [v[i] for i in selected_indices]
+                elif isinstance(v, tuple) and len(v) == batch_size:
+                    expert_batch[k] = tuple(v[i] for i in selected_indices)
+                else:
+                    expert_batch[k] = v
             out = self.experts[name](expert_batch)
             part = out.get("logits")
             if logits_out is None:

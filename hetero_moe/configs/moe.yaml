@@ -1,4 +1,4 @@
-batch_size: 8               # batch size for train/valid
+batch_size: 2               # batch size for train/valid
 lr: 0.001                   # base learning rate (router/expert share unless using param groups)
 epochs: 1                   # total training epochs
 save_path: runs/moe/best.pt # checkpoint path (.best saved on lowest valid loss)
@@ -18,6 +18,6 @@ router_temperature: 1.0     # Softmax temperature on router logits (lower=sharpe
 router_gumbel_noise: false  # Add Gumbel noise to router logits during training
 
 # Expert selection and freezing
-enabled_experts: [smiles, graph, cond, gnn3d]  # Subset of experts to include
+enabled_experts: [smile, graph]  # Subset of experts to include
 freeze_experts: []             # Experts to keep frozen throughout training
 
