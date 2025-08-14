@@ -16,14 +16,23 @@ class ReactionSample:
 
 
 class USPTODataset:
-    """Placeholder dataset that will wrap NPZ produced by Graph2SMILES bridge.
+    """Placeholder dataset that wraps NPZ files produced by Graph2SMILES bridge.
 
-    Expected NPZ keys (g2s):
-      - src_token_ids, src_lens, tgt_token_ids, tgt_lens
-      - a_scopes, b_scopes, a_features, b_features, a_graphs, b_graphs (for graph expert)
+    Parameters
+    ----------
+    npz_path:
+        Path to the `.npz` archive containing token and optional graph features.
+    smiles_file:
+        Optional path to a text file with aligned SMILES strings. Used for gate
+        feature computation but can be omitted.
+    load_graph:
+        When ``True`` (default) graph arrays are loaded if present.  Setting
+        this to ``False`` avoids materializing large graph tensors when they are
+        not needed (e.g. training the SMILES expert), speeding up startup and
+        reducing memory usage.
     """
 
-    def __init__(self, npz_path: str, smiles_file: Optional[str] = None):
+    def __init__(self, npz_path: str, smiles_file: Optional[str] = None, load_graph: bool = True):
         import numpy as np  # local import to avoid import cost when unused
 
         self._np = np
@@ -40,11 +49,21 @@ class USPTODataset:
                     self._smiles = lines
             except Exception:
                 self._smiles = None
-        # Optional graph arrays from Graph2SMILES preprocessing
-        self.has_graph = all(k in self._feat for k in [
-            "a_scopes", "b_scopes", "a_features", "b_features", "a_graphs", "b_graphs",
-            "a_scopes_lens", "b_scopes_lens", "a_features_lens", "b_features_lens",
-        ])
+        # Optional graph arrays from Graph2SMILES preprocessing. These can be
+        # extremely large, so allow callers to opt out of loading them.
+        graph_keys = [
+            "a_scopes",
+            "b_scopes",
+            "a_features",
+            "b_features",
+            "a_graphs",
+            "b_graphs",
+            "a_scopes_lens",
+            "b_scopes_lens",
+            "a_features_lens",
+            "b_features_lens",
+        ]
+        self.has_graph = load_graph and all(k in self._feat for k in graph_keys)
         if self.has_graph:
             self.a_scopes = self._feat["a_scopes"]
             self.b_scopes = self._feat["b_scopes"]
