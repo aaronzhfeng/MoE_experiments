@@ -77,10 +77,13 @@ def main():
         apply_overrides(args, cfg)
     device = args.device
 
-    train_ds = USPTODataset(args.train_bin)
-    valid_ds = USPTODataset(args.valid_bin)
-    # If graph features are present, use graph collate; else sequence collate
-    collate = collate_graph_batch if getattr(train_ds, "has_graph", False) else collate_seq_batch
+    # Only materialize graph features when training a graph-based expert. This
+    # keeps SMILES-only training light-weight even if the underlying NPZ files
+    # contain graph arrays.
+    use_graph = args.expert in {"graph", "gnn3d"}
+    train_ds = USPTODataset(args.train_bin, load_graph=use_graph)
+    valid_ds = USPTODataset(args.valid_bin, load_graph=use_graph)
+    collate = collate_graph_batch if use_graph else collate_seq_batch
     train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True, collate_fn=collate)
     valid_loader = DataLoader(valid_ds, batch_size=args.batch_size, shuffle=False, collate_fn=collate)
 
