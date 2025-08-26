@@ -1,6 +1,5 @@
 import logging
 import os.path
-import warnings
 
 import networkx as nx
 import numpy as np
@@ -12,17 +11,8 @@ import torch
 from rdkit import Chem
 from torch.utils.data import Dataset
 from typing import Dict, List, Tuple
-from chem_utils import ATOM_FDIM, BOND_FDIM, get_atom_features_sparse, get_bond_features
-from rxn_graphs import RxnGraph
-
-
-smi_vocab = {}
-
-
-def init_worker(vocab: Dict[str, int]):
-    global smi_vocab
-    smi_vocab = vocab
-    warnings.filterwarnings("ignore")
+from utils.chem_utils import ATOM_FDIM, BOND_FDIM, get_atom_features_sparse, get_bond_features
+from utils.rxn_graphs import RxnGraph
 
 
 def tokenize_selfies_from_smiles(smi: str) -> str:
@@ -600,8 +590,10 @@ def get_graph_features_from_smi(_args):
     b_graphs = [[] for _ in range(len(bond_features))]
 
     # second edge iteration to get neighboring edges (after edge_dict is updated fully)
-    for eid, bond_feat in enumerate(bond_features):
+    for bond_feat in bond_features:
         u, v = bond_feat[:2]
+        eid = edge_dict[(u, v)]
+
         for w in G.predecessors(u):
             if not w == v:
                 b_graphs[eid].append(edge_dict[(w, u)])
@@ -717,13 +709,13 @@ def collate_graph_distances(args, graph_features: List[Tuple], a_lengths: List[i
     distances = []
     for bid, (graph_feature, a_length) in enumerate(zip(graph_features, a_lengths)):
         _, _, _, bond_features, _, _ = graph_feature
-        bond_features = np.array(bond_features)
+        bond_features = bond_features.copy()
 
         # compute adjacency
         adjacency = np.zeros((a_length, a_length), dtype=np.int32)
-        if bond_features.size > 0:
-            for u, v in bond_features[:, :2]:
-                adjacency[u, v] = 1
+        for bond_feature in bond_features:
+            u, v = bond_feature[:2]
+            adjacency[u, v] = 1
 
         # compute graph distance
         distance = adjacency.copy()

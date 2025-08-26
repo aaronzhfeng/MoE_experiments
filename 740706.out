@@ -1,0 +1,908 @@
+Python: /new-stg/home/aaron/miniconda/envs/g2s_env/bin/python
+CUDA available: True
+CUDA_VISIBLE_DEVICES: 0
+[setup] device=cuda | workers=8 | pin_memory=True
+[gpu:setup] id=0 name=NVIDIA RTX A6000 alloc=0.0MB reserved=0.0MB max_alloc=0.0MB
+[eagerize] materialized 14 arrays in 22.18s
+[eagerize] materialized 14 arrays in 1.35s
+/new-stg/home/aaron/miniconda/envs/g2s_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py:626: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(
+/new-stg/home/aaron/miniconda/envs/g2s_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py:626: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(
+[train] step 100 | loss 0.3916 | tok_acc 0.9167 | seq_acc 0.7350 | 11.24 it/s
+[train] step 200 | loss 0.1987 | tok_acc 0.9576 | seq_acc 0.8538 | 15.73 it/s
+[train] step 300 | loss 0.1333 | tok_acc 0.9717 | seq_acc 0.8975 | 18.21 it/s
+[train] step 400 | loss 0.1004 | tok_acc 0.9786 | seq_acc 0.9216 | 19.44 it/s
+[train] step 500 | loss 0.0810 | tok_acc 0.9828 | seq_acc 0.9337 | 20.69 it/s
+[train] step 600 | loss 0.0682 | tok_acc 0.9856 | seq_acc 0.9415 | 21.24 it/s
+[train] step 700 | loss 0.0668 | tok_acc 0.9856 | seq_acc 0.8975 | 21.83 it/s
+[train] step 800 | loss 0.0637 | tok_acc 0.9864 | seq_acc 0.8778 | 22.21 it/s
+[train] step 900 | loss 0.0587 | tok_acc 0.9875 | seq_acc 0.8772 | 22.41 it/s
+[train] step 1000 | loss 0.0540 | tok_acc 0.9885 | seq_acc 0.8818 | 22.73 it/s
+[gpu:train@1000] id=0 name=NVIDIA RTX A6000 alloc=140.0MB reserved=488.0MB max_alloc=392.0MB
+[train] step 1100 | loss 0.0498 | tok_acc 0.9894 | seq_acc 0.8867 | 23.04 it/s
+[train] step 1200 | loss 0.0464 | tok_acc 0.9901 | seq_acc 0.8912 | 23.15 it/s
+[train] step 1300 | loss 0.0433 | tok_acc 0.9908 | seq_acc 0.8964 | 23.21 it/s
+[train] step 1400 | loss 0.0407 | tok_acc 0.9914 | seq_acc 0.9011 | 23.24 it/s
+[train] step 1500 | loss 0.0381 | tok_acc 0.9919 | seq_acc 0.9067 | 23.42 it/s
+[train] step 1600 | loss 0.0361 | tok_acc 0.9923 | seq_acc 0.9102 | 23.60 it/s
+[train] step 1700 | loss 0.0345 | tok_acc 0.9927 | seq_acc 0.9118 | 23.78 it/s
+[train] step 1800 | loss 0.0333 | tok_acc 0.9930 | seq_acc 0.9118 | 23.86 it/s
+[train] step 1900 | loss 0.0322 | tok_acc 0.9932 | seq_acc 0.9122 | 24.03 it/s
+[train] step 2000 | loss 0.0316 | tok_acc 0.9934 | seq_acc 0.9112 | 24.14 it/s
+[gpu:train@2000] id=0 name=NVIDIA RTX A6000 alloc=140.1MB reserved=488.0MB max_alloc=403.7MB
+[train] step 2100 | loss 0.0305 | tok_acc 0.9936 | seq_acc 0.9131 | 24.19 it/s
+[train] step 2200 | loss 0.0296 | tok_acc 0.9938 | seq_acc 0.9140 | 24.22 it/s
+[train] step 2300 | loss 0.0286 | tok_acc 0.9940 | seq_acc 0.9154 | 24.17 it/s
+[train] step 2400 | loss 0.0283 | tok_acc 0.9941 | seq_acc 0.9136 | 24.26 it/s
+[train] step 2500 | loss 0.0277 | tok_acc 0.9943 | seq_acc 0.9136 | 24.34 it/s
+[train] step 2600 | loss 0.0270 | tok_acc 0.9944 | seq_acc 0.9146 | 24.44 it/s
+[train] step 2700 | loss 0.0264 | tok_acc 0.9946 | seq_acc 0.9150 | 24.52 it/s
+[train] step 2800 | loss 0.0257 | tok_acc 0.9947 | seq_acc 0.9167 | 24.59 it/s
+[train] step 2900 | loss 0.0250 | tok_acc 0.9949 | seq_acc 0.9181 | 24.66 it/s
+[train] step 3000 | loss 0.0244 | tok_acc 0.9950 | seq_acc 0.9194 | 24.73 it/s
+[gpu:train@3000] id=0 name=NVIDIA RTX A6000 alloc=141.1MB reserved=588.0MB max_alloc=457.2MB
+[train] step 3100 | loss 0.0237 | tok_acc 0.9951 | seq_acc 0.9209 | 24.78 it/s
+[train] step 3200 | loss 0.0233 | tok_acc 0.9952 | seq_acc 0.9209 | 24.83 it/s
+[train] step 3300 | loss 0.0231 | tok_acc 0.9953 | seq_acc 0.9208 | 24.88 it/s
+[train] step 3400 | loss 0.0228 | tok_acc 0.9953 | seq_acc 0.9203 | 24.88 it/s
+[train] step 3500 | loss 0.0228 | tok_acc 0.9954 | seq_acc 0.9193 | 24.94 it/s
+[train] step 3600 | loss 0.0226 | tok_acc 0.9954 | seq_acc 0.9194 | 24.99 it/s
+[train] step 3700 | loss 0.0221 | tok_acc 0.9955 | seq_acc 0.9206 | 24.99 it/s
+[train] step 3800 | loss 0.0217 | tok_acc 0.9956 | seq_acc 0.9215 | 25.02 it/s
+[train] step 3900 | loss 0.0287 | tok_acc 0.9949 | seq_acc 0.9179 | 25.05 it/s
+[train] step 4000 | loss 0.0284 | tok_acc 0.9949 | seq_acc 0.9176 | 25.08 it/s
+[gpu:train@4000] id=0 name=NVIDIA RTX A6000 alloc=139.7MB reserved=588.0MB max_alloc=387.9MB
+[train] step 4100 | loss 0.0281 | tok_acc 0.9950 | seq_acc 0.9173 | 25.13 it/s
+[train] step 4200 | loss 0.0276 | tok_acc 0.9951 | seq_acc 0.9183 | 25.14 it/s
+[train] step 4300 | loss 0.0271 | tok_acc 0.9952 | seq_acc 0.9191 | 25.17 it/s
+[train] step 4400 | loss 0.0267 | tok_acc 0.9953 | seq_acc 0.9197 | 25.21 it/s
+[train] step 4500 | loss 0.0262 | tok_acc 0.9953 | seq_acc 0.9209 | 25.24 it/s
+[train] step 4600 | loss 0.0258 | tok_acc 0.9954 | seq_acc 0.9218 | 25.27 it/s
+[train] step 4700 | loss 0.0300 | tok_acc 0.9952 | seq_acc 0.9212 | 25.28 it/s
+[train] step 4800 | loss 0.0373 | tok_acc 0.9942 | seq_acc 0.9171 | 25.28 it/s
+[train] step 4900 | loss 0.0370 | tok_acc 0.9943 | seq_acc 0.9166 | 25.31 it/s
+[train] step 5000 | loss 0.0366 | tok_acc 0.9944 | seq_acc 0.9170 | 25.32 it/s
+[gpu:train@5000] id=0 name=NVIDIA RTX A6000 alloc=139.7MB reserved=588.0MB max_alloc=382.2MB
+[train] step 5100 | loss 0.0361 | tok_acc 0.9944 | seq_acc 0.9173 | 25.35 it/s
+[train] step 5200 | loss 0.0354 | tok_acc 0.9945 | seq_acc 0.9186 | 25.37 it/s
+[train] step 5300 | loss 0.0349 | tok_acc 0.9946 | seq_acc 0.9193 | 25.40 it/s
+[train] step 5400 | loss 0.0345 | tok_acc 0.9947 | seq_acc 0.9194 | 25.42 it/s
+[train] step 5500 | loss 0.0341 | tok_acc 0.9947 | seq_acc 0.9195 | 25.43 it/s
+[train] step 5600 | loss 0.0335 | tok_acc 0.9948 | seq_acc 0.9204 | 25.45 it/s
+[train] step 5700 | loss 0.0331 | tok_acc 0.9949 | seq_acc 0.9211 | 25.46 it/s
+[train] step 5800 | loss 0.0326 | tok_acc 0.9950 | seq_acc 0.9219 | 25.46 it/s
+[train] step 5900 | loss 0.0322 | tok_acc 0.9950 | seq_acc 0.9226 | 25.47 it/s
+[train] step 6000 | loss 0.0317 | tok_acc 0.9951 | seq_acc 0.9233 | 25.46 it/s
+[gpu:train@6000] id=0 name=NVIDIA RTX A6000 alloc=140.5MB reserved=588.0MB max_alloc=426.0MB
+[train] step 6100 | loss 0.0314 | tok_acc 0.9952 | seq_acc 0.9237 | 25.48 it/s
+[train] step 6200 | loss 0.0312 | tok_acc 0.9952 | seq_acc 0.9231 | 25.50 it/s
+[train] step 6300 | loss 0.0308 | tok_acc 0.9952 | seq_acc 0.9234 | 25.49 it/s
+[train] step 6400 | loss 0.0305 | tok_acc 0.9953 | seq_acc 0.9236 | 25.51 it/s
+[train] step 6500 | loss 0.0302 | tok_acc 0.9953 | seq_acc 0.9240 | 25.52 it/s
+[train] step 6600 | loss 0.0298 | tok_acc 0.9954 | seq_acc 0.9244 | 25.54 it/s
+[train] step 6700 | loss 0.0295 | tok_acc 0.9954 | seq_acc 0.9248 | 25.52 it/s
+[train] step 6800 | loss 0.0293 | tok_acc 0.9955 | seq_acc 0.9247 | 25.53 it/s
+[train] step 6900 | loss 0.0290 | tok_acc 0.9955 | seq_acc 0.9250 | 25.55 it/s
+[train] step 7000 | loss 0.0287 | tok_acc 0.9956 | seq_acc 0.9252 | 25.57 it/s
+[gpu:train@7000] id=0 name=NVIDIA RTX A6000 alloc=139.9MB reserved=588.0MB max_alloc=399.4MB
+[train] step 7100 | loss 0.0285 | tok_acc 0.9956 | seq_acc 0.9248 | 25.57 it/s
+[train] step 7200 | loss 0.0282 | tok_acc 0.9956 | seq_acc 0.9254 | 25.59 it/s
+[train] step 7300 | loss 0.0278 | tok_acc 0.9957 | seq_acc 0.9260 | 25.60 it/s
+[train] step 7400 | loss 0.0275 | tok_acc 0.9957 | seq_acc 0.9264 | 25.61 it/s
+[train] step 7500 | loss 0.0274 | tok_acc 0.9957 | seq_acc 0.9264 | 25.62 it/s
+[train] step 7600 | loss 0.0279 | tok_acc 0.9956 | seq_acc 0.9247 | 25.63 it/s
+[train] step 7700 | loss 0.0278 | tok_acc 0.9956 | seq_acc 0.9247 | 25.64 it/s
+[train] step 7800 | loss 0.0275 | tok_acc 0.9957 | seq_acc 0.9249 | 25.65 it/s
+[train] step 7900 | loss 0.0273 | tok_acc 0.9957 | seq_acc 0.9250 | 25.65 it/s
+[train] step 8000 | loss 0.0272 | tok_acc 0.9957 | seq_acc 0.9249 | 25.66 it/s
+[gpu:train@8000] id=0 name=NVIDIA RTX A6000 alloc=140.2MB reserved=588.0MB max_alloc=391.8MB
+[train] step 8100 | loss 0.0270 | tok_acc 0.9958 | seq_acc 0.9249 | 25.68 it/s
+[train] step 8200 | loss 0.0267 | tok_acc 0.9958 | seq_acc 0.9255 | 25.68 it/s
+[train] step 8300 | loss 0.0265 | tok_acc 0.9958 | seq_acc 0.9260 | 25.69 it/s
+[train] step 8400 | loss 0.0262 | tok_acc 0.9959 | seq_acc 0.9265 | 25.69 it/s
+[train] step 8500 | loss 0.0259 | tok_acc 0.9959 | seq_acc 0.9271 | 25.70 it/s
+[train] step 8600 | loss 0.0257 | tok_acc 0.9960 | seq_acc 0.9277 | 25.71 it/s
+[train] step 8700 | loss 0.0254 | tok_acc 0.9960 | seq_acc 0.9283 | 25.73 it/s
+[train] step 8800 | loss 0.0252 | tok_acc 0.9960 | seq_acc 0.9288 | 25.75 it/s
+[train] step 8900 | loss 0.0250 | tok_acc 0.9961 | seq_acc 0.9289 | 25.75 it/s
+[train] step 9000 | loss 0.0249 | tok_acc 0.9961 | seq_acc 0.9288 | 25.75 it/s
+[gpu:train@9000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=588.0MB max_alloc=385.1MB
+[train] step 9100 | loss 0.0247 | tok_acc 0.9961 | seq_acc 0.9288 | 25.77 it/s
+[train] step 9200 | loss 0.0245 | tok_acc 0.9961 | seq_acc 0.9292 | 25.79 it/s
+[train] step 9300 | loss 0.0245 | tok_acc 0.9961 | seq_acc 0.9288 | 25.80 it/s
+[train] step 9400 | loss 0.0244 | tok_acc 0.9962 | seq_acc 0.9286 | 25.80 it/s
+[train] step 9500 | loss 0.0243 | tok_acc 0.9962 | seq_acc 0.9285 | 25.82 it/s
+[train] step 9600 | loss 0.0242 | tok_acc 0.9962 | seq_acc 0.9284 | 25.83 it/s
+[train] step 9700 | loss 0.0240 | tok_acc 0.9962 | seq_acc 0.9289 | 25.83 it/s
+[train] step 9800 | loss 0.0238 | tok_acc 0.9963 | seq_acc 0.9291 | 25.83 it/s
+[train] step 9900 | loss 0.0242 | tok_acc 0.9962 | seq_acc 0.9272 | 25.82 it/s
+[train] step 10000 | loss 0.0241 | tok_acc 0.9962 | seq_acc 0.9272 | 25.83 it/s
+[gpu:train@10000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=588.0MB max_alloc=433.3MB
+[train] step 10100 | loss 0.0239 | tok_acc 0.9962 | seq_acc 0.9277 | 25.83 it/s
+[train] step 10200 | loss 0.0237 | tok_acc 0.9963 | seq_acc 0.9281 | 25.82 it/s
+[train] step 10300 | loss 0.0235 | tok_acc 0.9963 | seq_acc 0.9286 | 25.82 it/s
+[train] step 10400 | loss 0.0233 | tok_acc 0.9963 | seq_acc 0.9289 | 25.83 it/s
+[train] step 10500 | loss 0.0231 | tok_acc 0.9963 | seq_acc 0.9292 | 25.83 it/s
+[train] step 10600 | loss 0.0230 | tok_acc 0.9964 | seq_acc 0.9296 | 25.84 it/s
+[train] step 10700 | loss 0.0229 | tok_acc 0.9964 | seq_acc 0.9294 | 25.84 it/s
+[train] step 10800 | loss 0.0228 | tok_acc 0.9964 | seq_acc 0.9296 | 25.85 it/s
+[train] step 10900 | loss 0.0226 | tok_acc 0.9964 | seq_acc 0.9299 | 25.86 it/s
+[train] step 11000 | loss 0.0225 | tok_acc 0.9964 | seq_acc 0.9300 | 25.85 it/s
+[gpu:train@11000] id=0 name=NVIDIA RTX A6000 alloc=139.7MB reserved=588.0MB max_alloc=386.4MB
+[train] step 11100 | loss 0.0225 | tok_acc 0.9964 | seq_acc 0.9294 | 25.87 it/s
+[train] step 11200 | loss 0.0224 | tok_acc 0.9964 | seq_acc 0.9293 | 25.87 it/s
+[train] step 11300 | loss 0.0223 | tok_acc 0.9965 | seq_acc 0.9294 | 25.87 it/s
+[train] step 11400 | loss 0.0222 | tok_acc 0.9965 | seq_acc 0.9293 | 25.87 it/s
+[train] step 11500 | loss 0.0221 | tok_acc 0.9965 | seq_acc 0.9296 | 25.87 it/s
+[train] step 11600 | loss 0.0220 | tok_acc 0.9965 | seq_acc 0.9300 | 25.88 it/s
+[train] step 11700 | loss 0.0218 | tok_acc 0.9965 | seq_acc 0.9303 | 25.89 it/s
+[train] step 11800 | loss 0.0217 | tok_acc 0.9966 | seq_acc 0.9304 | 25.89 it/s
+[train] step 11900 | loss 0.0215 | tok_acc 0.9966 | seq_acc 0.9308 | 25.90 it/s
+[train] step 12000 | loss 0.0214 | tok_acc 0.9966 | seq_acc 0.9312 | 25.90 it/s
+[gpu:train@12000] id=0 name=NVIDIA RTX A6000 alloc=140.3MB reserved=588.0MB max_alloc=419.4MB
+[train] step 12100 | loss 0.0213 | tok_acc 0.9966 | seq_acc 0.9315 | 25.90 it/s
+[train] step 12200 | loss 0.0211 | tok_acc 0.9966 | seq_acc 0.9317 | 25.91 it/s
+[train] step 12300 | loss 0.0210 | tok_acc 0.9967 | seq_acc 0.9319 | 25.93 it/s
+[train] step 12400 | loss 0.0209 | tok_acc 0.9967 | seq_acc 0.9323 | 25.94 it/s
+[train] step 12500 | loss 0.0208 | tok_acc 0.9967 | seq_acc 0.9325 | 25.95 it/s
+[train] step 12600 | loss 0.0207 | tok_acc 0.9967 | seq_acc 0.9325 | 25.95 it/s
+[train] step 12700 | loss 0.0206 | tok_acc 0.9967 | seq_acc 0.9327 | 25.95 it/s
+[train] step 12800 | loss 0.0205 | tok_acc 0.9967 | seq_acc 0.9329 | 25.95 it/s
+[train] step 12900 | loss 0.0205 | tok_acc 0.9968 | seq_acc 0.9330 | 25.95 it/s
+[train] step 13000 | loss 0.0203 | tok_acc 0.9968 | seq_acc 0.9333 | 25.94 it/s
+[gpu:train@13000] id=0 name=NVIDIA RTX A6000 alloc=141.0MB reserved=588.0MB max_alloc=455.1MB
+[train] step 13100 | loss 0.0202 | tok_acc 0.9968 | seq_acc 0.9335 | 25.95 it/s
+[train] step 13200 | loss 0.0201 | tok_acc 0.9968 | seq_acc 0.9338 | 25.95 it/s
+[train] step 13300 | loss 0.0200 | tok_acc 0.9968 | seq_acc 0.9338 | 25.97 it/s
+[train] step 13400 | loss 0.0201 | tok_acc 0.9968 | seq_acc 0.9334 | 25.98 it/s
+[train] step 13500 | loss 0.0201 | tok_acc 0.9968 | seq_acc 0.9325 | 25.99 it/s
+[train] step 13600 | loss 0.0201 | tok_acc 0.9968 | seq_acc 0.9325 | 25.99 it/s
+[train] step 13700 | loss 0.0200 | tok_acc 0.9968 | seq_acc 0.9327 | 26.00 it/s
+[train] step 13800 | loss 0.0199 | tok_acc 0.9968 | seq_acc 0.9329 | 25.99 it/s
+[train] step 13900 | loss 0.0198 | tok_acc 0.9969 | seq_acc 0.9332 | 26.00 it/s
+[train] step 14000 | loss 0.0196 | tok_acc 0.9969 | seq_acc 0.9335 | 26.00 it/s
+[gpu:train@14000] id=0 name=NVIDIA RTX A6000 alloc=140.7MB reserved=588.0MB max_alloc=384.5MB
+[train] step 14100 | loss 0.0195 | tok_acc 0.9969 | seq_acc 0.9339 | 26.02 it/s
+[train] step 14200 | loss 0.0194 | tok_acc 0.9969 | seq_acc 0.9342 | 26.03 it/s
+[train] step 14300 | loss 0.0193 | tok_acc 0.9969 | seq_acc 0.9344 | 26.03 it/s
+[train] step 14400 | loss 0.0193 | tok_acc 0.9969 | seq_acc 0.9344 | 26.02 it/s
+[train] step 14500 | loss 0.0192 | tok_acc 0.9970 | seq_acc 0.9347 | 26.04 it/s
+[train] step 14600 | loss 0.0191 | tok_acc 0.9970 | seq_acc 0.9349 | 26.04 it/s
+[train] step 14700 | loss 0.0190 | tok_acc 0.9970 | seq_acc 0.9352 | 26.05 it/s
+[train] step 14800 | loss 0.0189 | tok_acc 0.9970 | seq_acc 0.9355 | 26.05 it/s
+[train] step 14900 | loss 0.0188 | tok_acc 0.9970 | seq_acc 0.9358 | 26.05 it/s
+[train] step 15000 | loss 0.0187 | tok_acc 0.9970 | seq_acc 0.9361 | 26.06 it/s
+[gpu:train@15000] id=0 name=NVIDIA RTX A6000 alloc=139.9MB reserved=588.0MB max_alloc=409.3MB
+[train] step 15100 | loss 0.0186 | tok_acc 0.9970 | seq_acc 0.9362 | 26.07 it/s
+[train] step 15200 | loss 0.0186 | tok_acc 0.9970 | seq_acc 0.9361 | 26.07 it/s
+[train] step 15300 | loss 0.0185 | tok_acc 0.9971 | seq_acc 0.9362 | 26.07 it/s
+[train] step 15400 | loss 0.0184 | tok_acc 0.9971 | seq_acc 0.9364 | 26.07 it/s
+[train] step 15500 | loss 0.0184 | tok_acc 0.9971 | seq_acc 0.9366 | 26.07 it/s
+[train] step 15600 | loss 0.0183 | tok_acc 0.9971 | seq_acc 0.9366 | 26.06 it/s
+[train] step 15700 | loss 0.0183 | tok_acc 0.9971 | seq_acc 0.9368 | 26.06 it/s
+[train] step 15800 | loss 0.0182 | tok_acc 0.9971 | seq_acc 0.9368 | 26.06 it/s
+[train] step 15900 | loss 0.0182 | tok_acc 0.9971 | seq_acc 0.9366 | 26.07 it/s
+[train] step 16000 | loss 0.0182 | tok_acc 0.9971 | seq_acc 0.9364 | 26.07 it/s
+[gpu:train@16000] id=0 name=NVIDIA RTX A6000 alloc=140.4MB reserved=588.0MB max_alloc=411.2MB
+[train] step 16100 | loss 0.0182 | tok_acc 0.9971 | seq_acc 0.9364 | 26.07 it/s
+[train] step 16200 | loss 0.0181 | tok_acc 0.9971 | seq_acc 0.9365 | 26.08 it/s
+[train] step 16300 | loss 0.0181 | tok_acc 0.9971 | seq_acc 0.9364 | 26.08 it/s
+[train] step 16400 | loss 0.0180 | tok_acc 0.9971 | seq_acc 0.9366 | 26.08 it/s
+[train] step 16500 | loss 0.0179 | tok_acc 0.9972 | seq_acc 0.9368 | 26.09 it/s
+[train] step 16600 | loss 0.0178 | tok_acc 0.9972 | seq_acc 0.9371 | 26.09 it/s
+[train] step 16700 | loss 0.0177 | tok_acc 0.9972 | seq_acc 0.9374 | 26.09 it/s
+[train] step 16800 | loss 0.0178 | tok_acc 0.9972 | seq_acc 0.9372 | 26.10 it/s
+[train] step 16900 | loss 0.0177 | tok_acc 0.9972 | seq_acc 0.9373 | 26.09 it/s
+[train] step 17000 | loss 0.0177 | tok_acc 0.9972 | seq_acc 0.9373 | 26.09 it/s
+[gpu:train@17000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=588.0MB max_alloc=390.0MB
+[train] step 17100 | loss 0.0176 | tok_acc 0.9972 | seq_acc 0.9375 | 26.10 it/s
+[train] step 17200 | loss 0.0175 | tok_acc 0.9972 | seq_acc 0.9378 | 26.10 it/s
+[train] step 17300 | loss 0.0174 | tok_acc 0.9972 | seq_acc 0.9380 | 26.10 it/s
+[train] step 17400 | loss 0.0174 | tok_acc 0.9973 | seq_acc 0.9382 | 26.10 it/s
+[train] step 17500 | loss 0.0173 | tok_acc 0.9973 | seq_acc 0.9383 | 26.11 it/s
+[train] step 17600 | loss 0.0172 | tok_acc 0.9973 | seq_acc 0.9385 | 26.11 it/s
+[train] step 17700 | loss 0.0172 | tok_acc 0.9973 | seq_acc 0.9387 | 26.11 it/s
+[train] step 17800 | loss 0.0171 | tok_acc 0.9973 | seq_acc 0.9389 | 26.11 it/s
+[train] step 17900 | loss 0.0170 | tok_acc 0.9973 | seq_acc 0.9391 | 26.11 it/s
+[train] step 18000 | loss 0.0169 | tok_acc 0.9973 | seq_acc 0.9394 | 26.11 it/s
+[gpu:train@18000] id=0 name=NVIDIA RTX A6000 alloc=140.0MB reserved=588.0MB max_alloc=395.5MB
+[train] step 18100 | loss 0.0168 | tok_acc 0.9973 | seq_acc 0.9396 | 26.10 it/s
+[train] step 18200 | loss 0.0168 | tok_acc 0.9973 | seq_acc 0.9398 | 26.10 it/s
+[train] step 18300 | loss 0.0168 | tok_acc 0.9974 | seq_acc 0.9398 | 26.09 it/s
+[train] step 18400 | loss 0.0167 | tok_acc 0.9974 | seq_acc 0.9398 | 26.08 it/s
+[train] step 18500 | loss 0.0167 | tok_acc 0.9974 | seq_acc 0.9399 | 26.08 it/s
+[train] step 18600 | loss 0.0166 | tok_acc 0.9974 | seq_acc 0.9400 | 26.09 it/s
+[train] step 18700 | loss 0.0166 | tok_acc 0.9974 | seq_acc 0.9400 | 26.09 it/s
+[train] step 18800 | loss 0.0165 | tok_acc 0.9974 | seq_acc 0.9401 | 26.08 it/s
+[train] step 18900 | loss 0.0165 | tok_acc 0.9974 | seq_acc 0.9401 | 26.08 it/s
+[train] step 19000 | loss 0.0165 | tok_acc 0.9974 | seq_acc 0.9401 | 26.08 it/s
+[gpu:train@19000] id=0 name=NVIDIA RTX A6000 alloc=140.1MB reserved=588.0MB max_alloc=467.8MB
+[train] step 19100 | loss 0.0164 | tok_acc 0.9974 | seq_acc 0.9403 | 26.07 it/s
+[train] step 19200 | loss 0.0163 | tok_acc 0.9974 | seq_acc 0.9405 | 26.07 it/s
+[train] step 19300 | loss 0.0164 | tok_acc 0.9974 | seq_acc 0.9403 | 26.08 it/s
+[train] step 19400 | loss 0.0163 | tok_acc 0.9974 | seq_acc 0.9403 | 26.08 it/s
+[train] step 19500 | loss 0.0163 | tok_acc 0.9974 | seq_acc 0.9404 | 26.08 it/s
+[train] step 19600 | loss 0.0163 | tok_acc 0.9974 | seq_acc 0.9404 | 26.06 it/s
+[train] step 19700 | loss 0.0162 | tok_acc 0.9974 | seq_acc 0.9404 | 26.05 it/s
+[train] step 19800 | loss 0.0162 | tok_acc 0.9975 | seq_acc 0.9405 | 26.05 it/s
+[train] step 19900 | loss 0.0161 | tok_acc 0.9975 | seq_acc 0.9406 | 26.05 it/s
+[train] step 20000 | loss 0.0161 | tok_acc 0.9975 | seq_acc 0.9408 | 26.06 it/s
+[gpu:train@20000] id=0 name=NVIDIA RTX A6000 alloc=139.7MB reserved=588.0MB max_alloc=396.3MB
+[train] step 20100 | loss 0.0160 | tok_acc 0.9975 | seq_acc 0.9409 | 26.05 it/s
+[train] step 20200 | loss 0.0160 | tok_acc 0.9975 | seq_acc 0.9411 | 26.06 it/s
+[train] step 20300 | loss 0.0159 | tok_acc 0.9975 | seq_acc 0.9412 | 26.06 it/s
+[train] step 20400 | loss 0.0159 | tok_acc 0.9975 | seq_acc 0.9414 | 26.06 it/s
+[train] step 20500 | loss 0.0158 | tok_acc 0.9975 | seq_acc 0.9415 | 26.06 it/s
+[train] step 20600 | loss 0.0158 | tok_acc 0.9975 | seq_acc 0.9417 | 26.05 it/s
+[train] step 20700 | loss 0.0157 | tok_acc 0.9975 | seq_acc 0.9418 | 26.04 it/s
+[train] step 20800 | loss 0.0157 | tok_acc 0.9975 | seq_acc 0.9419 | 26.04 it/s
+[train] step 20900 | loss 0.0157 | tok_acc 0.9975 | seq_acc 0.9418 | 26.04 it/s
+[train] step 21000 | loss 0.0156 | tok_acc 0.9975 | seq_acc 0.9420 | 26.03 it/s
+[gpu:train@21000] id=0 name=NVIDIA RTX A6000 alloc=139.6MB reserved=588.0MB max_alloc=394.8MB
+[train] step 21100 | loss 0.0156 | tok_acc 0.9975 | seq_acc 0.9420 | 26.03 it/s
+[train] step 21200 | loss 0.0155 | tok_acc 0.9976 | seq_acc 0.9420 | 26.03 it/s
+[train] step 21300 | loss 0.0155 | tok_acc 0.9976 | seq_acc 0.9421 | 26.03 it/s
+[train] step 21400 | loss 0.0155 | tok_acc 0.9976 | seq_acc 0.9422 | 26.03 it/s
+[train] step 21500 | loss 0.0154 | tok_acc 0.9976 | seq_acc 0.9423 | 26.03 it/s
+[train] step 21600 | loss 0.0154 | tok_acc 0.9976 | seq_acc 0.9424 | 26.04 it/s
+[train] step 21700 | loss 0.0153 | tok_acc 0.9976 | seq_acc 0.9426 | 26.05 it/s
+[train] step 21800 | loss 0.0152 | tok_acc 0.9976 | seq_acc 0.9428 | 26.04 it/s
+[train] step 21900 | loss 0.0153 | tok_acc 0.9976 | seq_acc 0.9427 | 26.05 it/s
+[train] step 22000 | loss 0.0153 | tok_acc 0.9976 | seq_acc 0.9429 | 26.05 it/s
+[gpu:train@22000] id=0 name=NVIDIA RTX A6000 alloc=139.9MB reserved=588.0MB max_alloc=388.5MB
+[train] step 22100 | loss 0.0152 | tok_acc 0.9976 | seq_acc 0.9429 | 26.05 it/s
+[train] step 22200 | loss 0.0152 | tok_acc 0.9976 | seq_acc 0.9428 | 26.05 it/s
+[train] step 22300 | loss 0.0152 | tok_acc 0.9976 | seq_acc 0.9428 | 26.05 it/s
+[train] step 22400 | loss 0.0152 | tok_acc 0.9976 | seq_acc 0.9428 | 26.05 it/s
+[train] step 22500 | loss 0.0152 | tok_acc 0.9976 | seq_acc 0.9428 | 26.03 it/s
+[train] step 22600 | loss 0.0151 | tok_acc 0.9976 | seq_acc 0.9429 | 26.02 it/s
+[train] step 22700 | loss 0.0151 | tok_acc 0.9976 | seq_acc 0.9431 | 26.00 it/s
+[train] step 22800 | loss 0.0150 | tok_acc 0.9976 | seq_acc 0.9432 | 25.99 it/s
+[train] step 22900 | loss 0.0150 | tok_acc 0.9976 | seq_acc 0.9434 | 25.98 it/s
+[train] step 23000 | loss 0.0149 | tok_acc 0.9977 | seq_acc 0.9436 | 25.97 it/s
+[gpu:train@23000] id=0 name=NVIDIA RTX A6000 alloc=140.0MB reserved=588.0MB max_alloc=405.7MB
+[train] step 23100 | loss 0.0149 | tok_acc 0.9977 | seq_acc 0.9437 | 25.94 it/s
+[train] step 23200 | loss 0.0148 | tok_acc 0.9977 | seq_acc 0.9439 | 25.93 it/s
+[train] step 23300 | loss 0.0148 | tok_acc 0.9977 | seq_acc 0.9441 | 25.92 it/s
+[train] step 23400 | loss 0.0147 | tok_acc 0.9977 | seq_acc 0.9442 | 25.91 it/s
+[train] step 23500 | loss 0.0147 | tok_acc 0.9977 | seq_acc 0.9443 | 25.89 it/s
+[train] step 23600 | loss 0.0146 | tok_acc 0.9977 | seq_acc 0.9444 | 25.88 it/s
+[train] step 23700 | loss 0.0146 | tok_acc 0.9977 | seq_acc 0.9445 | 25.87 it/s
+[train] step 23800 | loss 0.0146 | tok_acc 0.9977 | seq_acc 0.9445 | 25.86 it/s
+[train] step 23900 | loss 0.0146 | tok_acc 0.9977 | seq_acc 0.9445 | 25.84 it/s
+[train] step 24000 | loss 0.0146 | tok_acc 0.9977 | seq_acc 0.9445 | 25.83 it/s
+[gpu:train@24000] id=0 name=NVIDIA RTX A6000 alloc=140.5MB reserved=588.0MB max_alloc=396.2MB
+[train] step 24100 | loss 0.0145 | tok_acc 0.9977 | seq_acc 0.9445 | 25.82 it/s
+[train] step 24200 | loss 0.0145 | tok_acc 0.9977 | seq_acc 0.9447 | 25.81 it/s
+[train] step 24300 | loss 0.0145 | tok_acc 0.9977 | seq_acc 0.9447 | 25.81 it/s
+[train] step 24400 | loss 0.0144 | tok_acc 0.9977 | seq_acc 0.9448 | 25.80 it/s
+[train] step 24500 | loss 0.0144 | tok_acc 0.9977 | seq_acc 0.9449 | 25.77 it/s
+[train] step 24600 | loss 0.0144 | tok_acc 0.9977 | seq_acc 0.9449 | 25.66 it/s
+[train] step 24700 | loss 0.0144 | tok_acc 0.9977 | seq_acc 0.9449 | 25.65 it/s
+[train] step 24800 | loss 0.0143 | tok_acc 0.9978 | seq_acc 0.9450 | 25.64 it/s
+[train] step 24900 | loss 0.0143 | tok_acc 0.9978 | seq_acc 0.9451 | 25.63 it/s
+[train] step 25000 | loss 0.0143 | tok_acc 0.9978 | seq_acc 0.9452 | 25.53 it/s
+[gpu:train@25000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=588.0MB max_alloc=395.1MB
+[train] step 25100 | loss 0.0142 | tok_acc 0.9978 | seq_acc 0.9452 | 25.39 it/s
+[train] step 25200 | loss 0.0142 | tok_acc 0.9978 | seq_acc 0.9452 | 25.36 it/s
+[train] step 25300 | loss 0.0142 | tok_acc 0.9978 | seq_acc 0.9452 | 25.35 it/s
+[train] step 25400 | loss 0.0142 | tok_acc 0.9978 | seq_acc 0.9452 | 25.32 it/s
+[train] step 25500 | loss 0.0142 | tok_acc 0.9978 | seq_acc 0.9453 | 25.26 it/s
+[train] step 25600 | loss 0.0141 | tok_acc 0.9978 | seq_acc 0.9454 | 25.22 it/s
+[train] step 25700 | loss 0.0141 | tok_acc 0.9978 | seq_acc 0.9456 | 25.14 it/s
+[train] step 25800 | loss 0.0140 | tok_acc 0.9978 | seq_acc 0.9457 | 24.98 it/s
+[train] step 25900 | loss 0.0140 | tok_acc 0.9978 | seq_acc 0.9458 | 24.87 it/s
+[train] step 26000 | loss 0.0140 | tok_acc 0.9978 | seq_acc 0.9459 | 24.84 it/s
+[gpu:train@26000] id=0 name=NVIDIA RTX A6000 alloc=140.5MB reserved=588.0MB max_alloc=434.8MB
+[train] step 26100 | loss 0.0139 | tok_acc 0.9978 | seq_acc 0.9460 | 24.78 it/s
+[train] step 26200 | loss 0.0139 | tok_acc 0.9978 | seq_acc 0.9461 | 24.76 it/s
+[train] step 26300 | loss 0.0139 | tok_acc 0.9978 | seq_acc 0.9461 | 24.73 it/s
+[train] step 26400 | loss 0.0139 | tok_acc 0.9978 | seq_acc 0.9460 | 24.59 it/s
+[train] step 26500 | loss 0.0139 | tok_acc 0.9978 | seq_acc 0.9459 | 24.44 it/s
+[train] step 26600 | loss 0.0139 | tok_acc 0.9978 | seq_acc 0.9459 | 24.40 it/s
+[train] step 26700 | loss 0.0139 | tok_acc 0.9978 | seq_acc 0.9459 | 24.37 it/s
+[train] step 26800 | loss 0.0139 | tok_acc 0.9978 | seq_acc 0.9459 | 24.34 it/s
+[train] step 26900 | loss 0.0138 | tok_acc 0.9978 | seq_acc 0.9460 | 24.33 it/s
+[train] step 27000 | loss 0.0138 | tok_acc 0.9978 | seq_acc 0.9461 | 24.31 it/s
+[gpu:train@27000] id=0 name=NVIDIA RTX A6000 alloc=140.4MB reserved=588.0MB max_alloc=373.2MB
+[train] step 27100 | loss 0.0139 | tok_acc 0.9978 | seq_acc 0.9458 | 24.23 it/s
+[train] step 27200 | loss 0.0139 | tok_acc 0.9978 | seq_acc 0.9458 | 24.13 it/s
+[train] step 27300 | loss 0.0139 | tok_acc 0.9978 | seq_acc 0.9459 | 24.10 it/s
+[train] step 27400 | loss 0.0138 | tok_acc 0.9978 | seq_acc 0.9460 | 24.10 it/s
+[train] step 27500 | loss 0.0138 | tok_acc 0.9978 | seq_acc 0.9462 | 24.08 it/s
+[train] step 27600 | loss 0.0138 | tok_acc 0.9978 | seq_acc 0.9462 | 24.07 it/s
+[train] step 27700 | loss 0.0137 | tok_acc 0.9979 | seq_acc 0.9463 | 24.06 it/s
+[train] step 27800 | loss 0.0137 | tok_acc 0.9979 | seq_acc 0.9464 | 23.90 it/s
+[train] step 27900 | loss 0.0137 | tok_acc 0.9979 | seq_acc 0.9465 | 23.85 it/s
+[train] step 28000 | loss 0.0136 | tok_acc 0.9979 | seq_acc 0.9467 | 23.83 it/s
+[gpu:train@28000] id=0 name=NVIDIA RTX A6000 alloc=140.4MB reserved=588.0MB max_alloc=390.4MB
+[train] step 28100 | loss 0.0136 | tok_acc 0.9979 | seq_acc 0.9467 | 23.82 it/s
+[train] step 28200 | loss 0.0136 | tok_acc 0.9979 | seq_acc 0.9467 | 23.80 it/s
+[train] step 28300 | loss 0.0136 | tok_acc 0.9979 | seq_acc 0.9468 | 23.79 it/s
+[train] step 28400 | loss 0.0135 | tok_acc 0.9979 | seq_acc 0.9468 | 23.79 it/s
+[train] step 28500 | loss 0.0135 | tok_acc 0.9979 | seq_acc 0.9468 | 23.79 it/s
+[train] step 28600 | loss 0.0135 | tok_acc 0.9979 | seq_acc 0.9468 | 23.78 it/s
+[train] step 28700 | loss 0.0135 | tok_acc 0.9979 | seq_acc 0.9468 | 23.78 it/s
+[train] step 28800 | loss 0.0135 | tok_acc 0.9979 | seq_acc 0.9469 | 23.77 it/s
+[train] step 28900 | loss 0.0135 | tok_acc 0.9979 | seq_acc 0.9470 | 23.77 it/s
+[train] step 29000 | loss 0.0134 | tok_acc 0.9979 | seq_acc 0.9470 | 23.77 it/s
+[gpu:train@29000] id=0 name=NVIDIA RTX A6000 alloc=140.3MB reserved=588.0MB max_alloc=400.6MB
+[train] step 29100 | loss 0.0134 | tok_acc 0.9979 | seq_acc 0.9471 | 23.76 it/s
+[train] step 29200 | loss 0.0134 | tok_acc 0.9979 | seq_acc 0.9471 | 23.76 it/s
+[train] step 29300 | loss 0.0134 | tok_acc 0.9979 | seq_acc 0.9472 | 23.75 it/s
+[train] step 29400 | loss 0.0134 | tok_acc 0.9979 | seq_acc 0.9472 | 23.75 it/s
+[train] step 29500 | loss 0.0133 | tok_acc 0.9979 | seq_acc 0.9473 | 23.75 it/s
+[train] step 29600 | loss 0.0133 | tok_acc 0.9979 | seq_acc 0.9473 | 23.75 it/s
+[train] step 29700 | loss 0.0133 | tok_acc 0.9979 | seq_acc 0.9475 | 23.75 it/s
+[train] step 29800 | loss 0.0133 | tok_acc 0.9979 | seq_acc 0.9475 | 23.75 it/s
+[train] step 29900 | loss 0.0132 | tok_acc 0.9979 | seq_acc 0.9476 | 23.74 it/s
+[train] step 30000 | loss 0.0132 | tok_acc 0.9979 | seq_acc 0.9477 | 23.73 it/s
+[gpu:train@30000] id=0 name=NVIDIA RTX A6000 alloc=139.9MB reserved=588.0MB max_alloc=391.2MB
+[train] step 30100 | loss 0.0132 | tok_acc 0.9979 | seq_acc 0.9478 | 23.72 it/s
+[train] step 30200 | loss 0.0131 | tok_acc 0.9980 | seq_acc 0.9479 | 23.71 it/s
+[train] step 30300 | loss 0.0131 | tok_acc 0.9980 | seq_acc 0.9480 | 23.70 it/s
+[train] step 30400 | loss 0.0131 | tok_acc 0.9980 | seq_acc 0.9481 | 23.70 it/s
+[train] step 30500 | loss 0.0130 | tok_acc 0.9980 | seq_acc 0.9482 | 23.69 it/s
+[train] step 30600 | loss 0.0130 | tok_acc 0.9980 | seq_acc 0.9482 | 23.68 it/s
+[train] step 30700 | loss 0.0130 | tok_acc 0.9980 | seq_acc 0.9483 | 23.67 it/s
+[train] step 30800 | loss 0.0130 | tok_acc 0.9980 | seq_acc 0.9482 | 23.66 it/s
+[train] step 30900 | loss 0.0130 | tok_acc 0.9980 | seq_acc 0.9483 | 23.65 it/s
+[train] step 31000 | loss 0.0130 | tok_acc 0.9980 | seq_acc 0.9483 | 23.64 it/s
+[gpu:train@31000] id=0 name=NVIDIA RTX A6000 alloc=140.2MB reserved=588.0MB max_alloc=397.8MB
+[train] step 31100 | loss 0.0130 | tok_acc 0.9980 | seq_acc 0.9483 | 23.64 it/s
+[train] step 31200 | loss 0.0130 | tok_acc 0.9980 | seq_acc 0.9482 | 23.64 it/s
+[train] step 31300 | loss 0.0130 | tok_acc 0.9980 | seq_acc 0.9482 | 23.63 it/s
+[train] step 31400 | loss 0.0130 | tok_acc 0.9980 | seq_acc 0.9483 | 23.64 it/s
+[train] step 31500 | loss 0.0129 | tok_acc 0.9980 | seq_acc 0.9484 | 23.64 it/s
+[train] step 31600 | loss 0.0129 | tok_acc 0.9980 | seq_acc 0.9485 | 23.64 it/s
+[train] step 31700 | loss 0.0129 | tok_acc 0.9980 | seq_acc 0.9486 | 23.64 it/s
+[train] step 31800 | loss 0.0129 | tok_acc 0.9980 | seq_acc 0.9486 | 23.64 it/s
+[train] step 31900 | loss 0.0128 | tok_acc 0.9980 | seq_acc 0.9486 | 23.63 it/s
+[train] step 32000 | loss 0.0129 | tok_acc 0.9980 | seq_acc 0.9485 | 23.61 it/s
+[gpu:train@32000] id=0 name=NVIDIA RTX A6000 alloc=141.4MB reserved=588.0MB max_alloc=394.8MB
+[train] step 32100 | loss 0.0129 | tok_acc 0.9980 | seq_acc 0.9485 | 23.60 it/s
+[train] step 32200 | loss 0.0128 | tok_acc 0.9980 | seq_acc 0.9486 | 23.59 it/s
+[train] step 32300 | loss 0.0128 | tok_acc 0.9980 | seq_acc 0.9487 | 23.58 it/s
+[train] step 32400 | loss 0.0128 | tok_acc 0.9980 | seq_acc 0.9487 | 23.57 it/s
+[train] step 32500 | loss 0.0128 | tok_acc 0.9980 | seq_acc 0.9488 | 23.56 it/s
+[train] step 32600 | loss 0.0128 | tok_acc 0.9980 | seq_acc 0.9489 | 23.56 it/s
+[train] step 32700 | loss 0.0127 | tok_acc 0.9980 | seq_acc 0.9490 | 23.56 it/s
+[train] step 32800 | loss 0.0127 | tok_acc 0.9980 | seq_acc 0.9491 | 23.56 it/s
+[train] step 32900 | loss 0.0127 | tok_acc 0.9980 | seq_acc 0.9492 | 23.56 it/s
+[train] step 33000 | loss 0.0126 | tok_acc 0.9980 | seq_acc 0.9493 | 23.55 it/s
+[gpu:train@33000] id=0 name=NVIDIA RTX A6000 alloc=139.9MB reserved=588.0MB max_alloc=381.9MB
+[train] step 33100 | loss 0.0126 | tok_acc 0.9980 | seq_acc 0.9493 | 23.56 it/s
+[train] step 33200 | loss 0.0126 | tok_acc 0.9980 | seq_acc 0.9494 | 23.55 it/s
+[train] step 33300 | loss 0.0126 | tok_acc 0.9981 | seq_acc 0.9495 | 23.56 it/s
+[train] step 33400 | loss 0.0125 | tok_acc 0.9981 | seq_acc 0.9496 | 23.56 it/s
+[train] step 33500 | loss 0.0125 | tok_acc 0.9981 | seq_acc 0.9497 | 23.56 it/s
+[train] step 33600 | loss 0.0125 | tok_acc 0.9981 | seq_acc 0.9497 | 23.56 it/s
+[train] step 33700 | loss 0.0125 | tok_acc 0.9981 | seq_acc 0.9497 | 23.56 it/s
+[train] step 33800 | loss 0.0125 | tok_acc 0.9981 | seq_acc 0.9497 | 23.56 it/s
+[train] step 33900 | loss 0.0125 | tok_acc 0.9981 | seq_acc 0.9497 | 23.56 it/s
+[train] step 34000 | loss 0.0125 | tok_acc 0.9981 | seq_acc 0.9498 | 23.56 it/s
+[gpu:train@34000] id=0 name=NVIDIA RTX A6000 alloc=140.1MB reserved=588.0MB max_alloc=399.5MB
+[train] step 34100 | loss 0.0124 | tok_acc 0.9981 | seq_acc 0.9497 | 23.56 it/s
+[train] step 34200 | loss 0.0124 | tok_acc 0.9981 | seq_acc 0.9498 | 23.57 it/s
+[train] step 34300 | loss 0.0124 | tok_acc 0.9981 | seq_acc 0.9498 | 23.57 it/s
+[train] step 34400 | loss 0.0124 | tok_acc 0.9981 | seq_acc 0.9499 | 23.56 it/s
+[train] step 34500 | loss 0.0124 | tok_acc 0.9981 | seq_acc 0.9499 | 23.56 it/s
+[train] step 34600 | loss 0.0124 | tok_acc 0.9981 | seq_acc 0.9500 | 23.56 it/s
+[train] step 34700 | loss 0.0123 | tok_acc 0.9981 | seq_acc 0.9501 | 23.56 it/s
+[train] step 34800 | loss 0.0123 | tok_acc 0.9981 | seq_acc 0.9502 | 23.56 it/s
+[train] step 34900 | loss 0.0123 | tok_acc 0.9981 | seq_acc 0.9503 | 23.55 it/s
+[train] step 35000 | loss 0.0123 | tok_acc 0.9981 | seq_acc 0.9504 | 23.55 it/s
+[gpu:train@35000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=588.0MB max_alloc=425.7MB
+[train] step 35100 | loss 0.0123 | tok_acc 0.9981 | seq_acc 0.9504 | 23.55 it/s
+[train] step 35200 | loss 0.0122 | tok_acc 0.9981 | seq_acc 0.9504 | 23.54 it/s
+[train] step 35300 | loss 0.0122 | tok_acc 0.9981 | seq_acc 0.9505 | 23.54 it/s
+[train] step 35400 | loss 0.0122 | tok_acc 0.9981 | seq_acc 0.9505 | 23.54 it/s
+[train] step 35500 | loss 0.0122 | tok_acc 0.9981 | seq_acc 0.9506 | 23.54 it/s
+[train] step 35600 | loss 0.0122 | tok_acc 0.9981 | seq_acc 0.9507 | 23.54 it/s
+[train] step 35700 | loss 0.0121 | tok_acc 0.9981 | seq_acc 0.9507 | 23.54 it/s
+[train] step 35800 | loss 0.0121 | tok_acc 0.9981 | seq_acc 0.9508 | 23.54 it/s
+[train] step 35900 | loss 0.0121 | tok_acc 0.9981 | seq_acc 0.9508 | 23.53 it/s
+[train] step 36000 | loss 0.0121 | tok_acc 0.9981 | seq_acc 0.9508 | 23.53 it/s
+[gpu:train@36000] id=0 name=NVIDIA RTX A6000 alloc=141.0MB reserved=588.0MB max_alloc=414.8MB
+[train] step 36100 | loss 0.0121 | tok_acc 0.9981 | seq_acc 0.9508 | 23.53 it/s
+[train] step 36200 | loss 0.0121 | tok_acc 0.9981 | seq_acc 0.9508 | 23.53 it/s
+[train] step 36300 | loss 0.0120 | tok_acc 0.9981 | seq_acc 0.9509 | 23.53 it/s
+[train] step 36400 | loss 0.0120 | tok_acc 0.9981 | seq_acc 0.9509 | 23.53 it/s
+[train] step 36500 | loss 0.0120 | tok_acc 0.9981 | seq_acc 0.9510 | 23.53 it/s
+[train] step 36600 | loss 0.0120 | tok_acc 0.9982 | seq_acc 0.9511 | 23.53 it/s
+[train] step 36700 | loss 0.0120 | tok_acc 0.9982 | seq_acc 0.9512 | 23.53 it/s
+[train] step 36800 | loss 0.0119 | tok_acc 0.9982 | seq_acc 0.9512 | 23.53 it/s
+[train] step 36900 | loss 0.0119 | tok_acc 0.9982 | seq_acc 0.9513 | 23.52 it/s
+[train] step 37000 | loss 0.0119 | tok_acc 0.9982 | seq_acc 0.9514 | 23.51 it/s
+[gpu:train@37000] id=0 name=NVIDIA RTX A6000 alloc=140.7MB reserved=588.0MB max_alloc=431.5MB
+[train] step 37100 | loss 0.0119 | tok_acc 0.9982 | seq_acc 0.9515 | 23.50 it/s
+[train] step 37200 | loss 0.0119 | tok_acc 0.9982 | seq_acc 0.9514 | 23.49 it/s
+[train] step 37300 | loss 0.0119 | tok_acc 0.9982 | seq_acc 0.9515 | 23.49 it/s
+[train] step 37400 | loss 0.0119 | tok_acc 0.9982 | seq_acc 0.9515 | 23.48 it/s
+[train] step 37500 | loss 0.0118 | tok_acc 0.9982 | seq_acc 0.9516 | 23.48 it/s
+[train] step 37600 | loss 0.0118 | tok_acc 0.9982 | seq_acc 0.9516 | 23.48 it/s
+[train] step 37700 | loss 0.0118 | tok_acc 0.9982 | seq_acc 0.9517 | 23.47 it/s
+[train] step 37800 | loss 0.0118 | tok_acc 0.9982 | seq_acc 0.9517 | 23.47 it/s
+[train] step 37900 | loss 0.0118 | tok_acc 0.9982 | seq_acc 0.9518 | 23.47 it/s
+[train] step 38000 | loss 0.0117 | tok_acc 0.9982 | seq_acc 0.9519 | 23.47 it/s
+[gpu:train@38000] id=0 name=NVIDIA RTX A6000 alloc=140.0MB reserved=588.0MB max_alloc=392.3MB
+[train] step 38100 | loss 0.0117 | tok_acc 0.9982 | seq_acc 0.9519 | 23.47 it/s
+[train] step 38200 | loss 0.0117 | tok_acc 0.9982 | seq_acc 0.9519 | 23.46 it/s
+[train] step 38300 | loss 0.0117 | tok_acc 0.9982 | seq_acc 0.9519 | 23.46 it/s
+[train] step 38400 | loss 0.0117 | tok_acc 0.9982 | seq_acc 0.9519 | 23.45 it/s
+[train] step 38500 | loss 0.0117 | tok_acc 0.9982 | seq_acc 0.9520 | 23.45 it/s
+[train] step 38600 | loss 0.0117 | tok_acc 0.9982 | seq_acc 0.9520 | 23.44 it/s
+[train] step 38700 | loss 0.0117 | tok_acc 0.9982 | seq_acc 0.9520 | 23.44 it/s
+[train] step 38800 | loss 0.0116 | tok_acc 0.9982 | seq_acc 0.9520 | 23.43 it/s
+[train] step 38900 | loss 0.0116 | tok_acc 0.9982 | seq_acc 0.9521 | 23.42 it/s
+[train] step 39000 | loss 0.0116 | tok_acc 0.9982 | seq_acc 0.9522 | 23.42 it/s
+[gpu:train@39000] id=0 name=NVIDIA RTX A6000 alloc=139.7MB reserved=608.0MB max_alloc=479.8MB
+[train] step 39100 | loss 0.0116 | tok_acc 0.9982 | seq_acc 0.9523 | 23.42 it/s
+[train] step 39200 | loss 0.0116 | tok_acc 0.9982 | seq_acc 0.9523 | 23.42 it/s
+[train] step 39300 | loss 0.0115 | tok_acc 0.9982 | seq_acc 0.9524 | 23.42 it/s
+[train] step 39400 | loss 0.0115 | tok_acc 0.9982 | seq_acc 0.9524 | 23.42 it/s
+[train] step 39500 | loss 0.0115 | tok_acc 0.9982 | seq_acc 0.9524 | 23.42 it/s
+[train] step 39600 | loss 0.0115 | tok_acc 0.9982 | seq_acc 0.9525 | 23.42 it/s
+[train] step 39700 | loss 0.0115 | tok_acc 0.9982 | seq_acc 0.9526 | 23.42 it/s
+[train] step 39800 | loss 0.0115 | tok_acc 0.9982 | seq_acc 0.9526 | 23.43 it/s
+[train] step 39900 | loss 0.0115 | tok_acc 0.9982 | seq_acc 0.9526 | 23.43 it/s
+[train] step 40000 | loss 0.0115 | tok_acc 0.9982 | seq_acc 0.9526 | 23.44 it/s
+[gpu:train@40000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=608.0MB max_alloc=416.0MB
+[train] step 40100 | loss 0.0115 | tok_acc 0.9982 | seq_acc 0.9526 | 23.44 it/s
+[train] step 40200 | loss 0.0114 | tok_acc 0.9982 | seq_acc 0.9527 | 23.45 it/s
+[train] step 40300 | loss 0.0114 | tok_acc 0.9982 | seq_acc 0.9528 | 23.46 it/s
+[train] step 40400 | loss 0.0114 | tok_acc 0.9982 | seq_acc 0.9529 | 23.46 it/s
+[train] step 40500 | loss 0.0114 | tok_acc 0.9983 | seq_acc 0.9529 | 23.47 it/s
+[train] step 40600 | loss 0.0114 | tok_acc 0.9983 | seq_acc 0.9530 | 23.47 it/s
+[train] step 40700 | loss 0.0113 | tok_acc 0.9983 | seq_acc 0.9530 | 23.48 it/s
+[train] step 40800 | loss 0.0113 | tok_acc 0.9983 | seq_acc 0.9531 | 23.49 it/s
+[train] step 40900 | loss 0.0113 | tok_acc 0.9983 | seq_acc 0.9531 | 23.49 it/s
+[train] step 41000 | loss 0.0113 | tok_acc 0.9983 | seq_acc 0.9532 | 23.50 it/s
+[gpu:train@41000] id=0 name=NVIDIA RTX A6000 alloc=140.4MB reserved=608.0MB max_alloc=383.0MB
+[train] step 41100 | loss 0.0113 | tok_acc 0.9983 | seq_acc 0.9532 | 23.51 it/s
+[train] step 41200 | loss 0.0113 | tok_acc 0.9983 | seq_acc 0.9532 | 23.51 it/s
+[train] step 41300 | loss 0.0113 | tok_acc 0.9983 | seq_acc 0.9532 | 23.52 it/s
+[train] step 41400 | loss 0.0113 | tok_acc 0.9983 | seq_acc 0.9532 | 23.52 it/s
+[train] step 41500 | loss 0.0113 | tok_acc 0.9983 | seq_acc 0.9532 | 23.53 it/s
+[train] step 41600 | loss 0.0113 | tok_acc 0.9983 | seq_acc 0.9532 | 23.53 it/s
+[train] step 41700 | loss 0.0112 | tok_acc 0.9983 | seq_acc 0.9533 | 23.54 it/s
+[train] step 41800 | loss 0.0112 | tok_acc 0.9983 | seq_acc 0.9533 | 23.55 it/s
+[train] step 41900 | loss 0.0112 | tok_acc 0.9983 | seq_acc 0.9534 | 23.55 it/s
+[train] step 42000 | loss 0.0112 | tok_acc 0.9983 | seq_acc 0.9535 | 23.56 it/s
+[gpu:train@42000] id=0 name=NVIDIA RTX A6000 alloc=140.0MB reserved=608.0MB max_alloc=417.9MB
+[train] step 42100 | loss 0.0112 | tok_acc 0.9983 | seq_acc 0.9536 | 23.57 it/s
+[train] step 42200 | loss 0.0111 | tok_acc 0.9983 | seq_acc 0.9536 | 23.57 it/s
+[train] step 42300 | loss 0.0111 | tok_acc 0.9983 | seq_acc 0.9537 | 23.58 it/s
+[train] step 42400 | loss 0.0111 | tok_acc 0.9983 | seq_acc 0.9537 | 23.58 it/s
+[train] step 42500 | loss 0.0111 | tok_acc 0.9983 | seq_acc 0.9538 | 23.59 it/s
+[train] step 42600 | loss 0.0111 | tok_acc 0.9983 | seq_acc 0.9538 | 23.60 it/s
+[train] step 42700 | loss 0.0111 | tok_acc 0.9983 | seq_acc 0.9538 | 23.60 it/s
+[train] step 42800 | loss 0.0111 | tok_acc 0.9983 | seq_acc 0.9538 | 23.61 it/s
+[train] step 42900 | loss 0.0111 | tok_acc 0.9983 | seq_acc 0.9538 | 23.61 it/s
+[train] step 43000 | loss 0.0111 | tok_acc 0.9983 | seq_acc 0.9538 | 23.62 it/s
+[gpu:train@43000] id=0 name=NVIDIA RTX A6000 alloc=140.2MB reserved=608.0MB max_alloc=389.7MB
+[train] step 43100 | loss 0.0111 | tok_acc 0.9983 | seq_acc 0.9538 | 23.62 it/s
+[train] step 43200 | loss 0.0111 | tok_acc 0.9983 | seq_acc 0.9539 | 23.63 it/s
+[train] step 43300 | loss 0.0110 | tok_acc 0.9983 | seq_acc 0.9540 | 23.64 it/s
+[train] step 43400 | loss 0.0110 | tok_acc 0.9983 | seq_acc 0.9540 | 23.64 it/s
+[train] step 43500 | loss 0.0110 | tok_acc 0.9983 | seq_acc 0.9541 | 23.65 it/s
+[train] step 43600 | loss 0.0110 | tok_acc 0.9983 | seq_acc 0.9542 | 23.66 it/s
+[train] step 43700 | loss 0.0110 | tok_acc 0.9983 | seq_acc 0.9542 | 23.66 it/s
+[train] step 43800 | loss 0.0109 | tok_acc 0.9983 | seq_acc 0.9543 | 23.67 it/s
+[train] step 43900 | loss 0.0109 | tok_acc 0.9983 | seq_acc 0.9543 | 23.67 it/s
+[train] step 44000 | loss 0.0109 | tok_acc 0.9983 | seq_acc 0.9544 | 23.68 it/s
+[gpu:train@44000] id=0 name=NVIDIA RTX A6000 alloc=140.3MB reserved=608.0MB max_alloc=399.3MB
+[train] step 44100 | loss 0.0109 | tok_acc 0.9983 | seq_acc 0.9544 | 23.68 it/s
+[train] step 44200 | loss 0.0109 | tok_acc 0.9983 | seq_acc 0.9544 | 23.68 it/s
+[train] step 44300 | loss 0.0109 | tok_acc 0.9983 | seq_acc 0.9544 | 23.69 it/s
+[train] step 44400 | loss 0.0109 | tok_acc 0.9983 | seq_acc 0.9545 | 23.69 it/s
+[train] step 44500 | loss 0.0109 | tok_acc 0.9983 | seq_acc 0.9546 | 23.69 it/s
+[train] step 44600 | loss 0.0109 | tok_acc 0.9983 | seq_acc 0.9546 | 23.69 it/s
+[train] step 44700 | loss 0.0109 | tok_acc 0.9983 | seq_acc 0.9545 | 23.70 it/s
+[train] step 44800 | loss 0.0108 | tok_acc 0.9983 | seq_acc 0.9546 | 23.70 it/s
+[train] step 44900 | loss 0.0108 | tok_acc 0.9983 | seq_acc 0.9546 | 23.70 it/s
+[train] step 45000 | loss 0.0108 | tok_acc 0.9983 | seq_acc 0.9547 | 23.71 it/s
+[gpu:train@45000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=608.0MB max_alloc=391.7MB
+[train] step 45100 | loss 0.0108 | tok_acc 0.9984 | seq_acc 0.9548 | 23.71 it/s
+[train] step 45200 | loss 0.0108 | tok_acc 0.9984 | seq_acc 0.9549 | 23.72 it/s
+[train] step 45300 | loss 0.0108 | tok_acc 0.9984 | seq_acc 0.9549 | 23.72 it/s
+[train] step 45400 | loss 0.0108 | tok_acc 0.9984 | seq_acc 0.9549 | 23.72 it/s
+[train] step 45500 | loss 0.0107 | tok_acc 0.9984 | seq_acc 0.9549 | 23.72 it/s
+[train] step 45600 | loss 0.0107 | tok_acc 0.9984 | seq_acc 0.9549 | 23.72 it/s
+[train] step 45700 | loss 0.0107 | tok_acc 0.9984 | seq_acc 0.9550 | 23.72 it/s
+[train] step 45800 | loss 0.0107 | tok_acc 0.9984 | seq_acc 0.9550 | 23.73 it/s
+[train] step 45900 | loss 0.0107 | tok_acc 0.9984 | seq_acc 0.9550 | 23.74 it/s
+[train] step 46000 | loss 0.0107 | tok_acc 0.9984 | seq_acc 0.9550 | 23.74 it/s
+[gpu:train@46000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=608.0MB max_alloc=394.0MB
+[train] step 46100 | loss 0.0107 | tok_acc 0.9984 | seq_acc 0.9551 | 23.75 it/s
+[train] step 46200 | loss 0.0107 | tok_acc 0.9984 | seq_acc 0.9551 | 23.75 it/s
+[train] step 46300 | loss 0.0107 | tok_acc 0.9984 | seq_acc 0.9552 | 23.76 it/s
+[train] step 46400 | loss 0.0107 | tok_acc 0.9984 | seq_acc 0.9551 | 23.77 it/s
+[train] step 46500 | loss 0.0106 | tok_acc 0.9984 | seq_acc 0.9552 | 23.77 it/s
+[train] step 46600 | loss 0.0106 | tok_acc 0.9984 | seq_acc 0.9552 | 23.77 it/s
+[train] step 46700 | loss 0.0106 | tok_acc 0.9984 | seq_acc 0.9553 | 23.78 it/s
+[train] step 46800 | loss 0.0106 | tok_acc 0.9984 | seq_acc 0.9553 | 23.78 it/s
+[train] step 46900 | loss 0.0106 | tok_acc 0.9984 | seq_acc 0.9553 | 23.79 it/s
+[train] step 47000 | loss 0.0106 | tok_acc 0.9984 | seq_acc 0.9554 | 23.79 it/s
+[gpu:train@47000] id=0 name=NVIDIA RTX A6000 alloc=140.0MB reserved=608.0MB max_alloc=443.2MB
+[train] step 47100 | loss 0.0106 | tok_acc 0.9984 | seq_acc 0.9554 | 23.79 it/s
+[train] step 47200 | loss 0.0106 | tok_acc 0.9984 | seq_acc 0.9555 | 23.79 it/s
+[train] step 47300 | loss 0.0105 | tok_acc 0.9984 | seq_acc 0.9556 | 23.79 it/s
+[train] step 47400 | loss 0.0105 | tok_acc 0.9984 | seq_acc 0.9556 | 23.80 it/s
+[train] step 47500 | loss 0.0105 | tok_acc 0.9984 | seq_acc 0.9557 | 23.80 it/s
+[train] step 47600 | loss 0.0105 | tok_acc 0.9984 | seq_acc 0.9557 | 23.80 it/s
+[train] step 47700 | loss 0.0105 | tok_acc 0.9984 | seq_acc 0.9557 | 23.81 it/s
+[train] step 47800 | loss 0.0105 | tok_acc 0.9984 | seq_acc 0.9558 | 23.81 it/s
+[train] step 47900 | loss 0.0105 | tok_acc 0.9984 | seq_acc 0.9558 | 23.81 it/s
+[train] step 48000 | loss 0.0105 | tok_acc 0.9984 | seq_acc 0.9558 | 23.82 it/s
+[gpu:train@48000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=608.0MB max_alloc=432.7MB
+[train] step 48100 | loss 0.0104 | tok_acc 0.9984 | seq_acc 0.9559 | 23.82 it/s
+[train] step 48200 | loss 0.0104 | tok_acc 0.9984 | seq_acc 0.9559 | 23.82 it/s
+[train] step 48300 | loss 0.0104 | tok_acc 0.9984 | seq_acc 0.9560 | 23.82 it/s
+[train] step 48400 | loss 0.0104 | tok_acc 0.9984 | seq_acc 0.9561 | 23.82 it/s
+[train] step 48500 | loss 0.0104 | tok_acc 0.9984 | seq_acc 0.9561 | 23.82 it/s
+[train] step 48600 | loss 0.0104 | tok_acc 0.9984 | seq_acc 0.9561 | 23.82 it/s
+[train] step 48700 | loss 0.0104 | tok_acc 0.9984 | seq_acc 0.9561 | 23.83 it/s
+[train] step 48800 | loss 0.0104 | tok_acc 0.9984 | seq_acc 0.9561 | 23.84 it/s
+[train] step 48900 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9562 | 23.84 it/s
+[train] step 49000 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9562 | 23.85 it/s
+[gpu:train@49000] id=0 name=NVIDIA RTX A6000 alloc=140.4MB reserved=608.0MB max_alloc=399.9MB
+[train] step 49100 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9563 | 23.85 it/s
+[train] step 49200 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9563 | 23.85 it/s
+[train] step 49300 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9563 | 23.86 it/s
+[train] step 49400 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9562 | 23.86 it/s
+[train] step 49500 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9562 | 23.87 it/s
+[train] step 49600 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9562 | 23.87 it/s
+[train] step 49700 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9563 | 23.88 it/s
+[train] step 49800 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9563 | 23.88 it/s
+[train] step 49900 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9564 | 23.89 it/s
+[train] step 50000 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9564 | 23.89 it/s
+[gpu:train@50000] id=0 name=NVIDIA RTX A6000 alloc=140.5MB reserved=608.0MB max_alloc=395.1MB
+[train] step 50100 | loss 0.0103 | tok_acc 0.9984 | seq_acc 0.9564 | 23.89 it/s
+[train] step 50200 | loss 0.0102 | tok_acc 0.9984 | seq_acc 0.9565 | 23.89 it/s
+[train] step 50300 | loss 0.0102 | tok_acc 0.9984 | seq_acc 0.9566 | 23.90 it/s
+[train] step 50400 | loss 0.0102 | tok_acc 0.9984 | seq_acc 0.9566 | 23.90 it/s
+[train] step 50500 | loss 0.0102 | tok_acc 0.9985 | seq_acc 0.9567 | 23.91 it/s
+[train] step 50600 | loss 0.0102 | tok_acc 0.9985 | seq_acc 0.9567 | 23.91 it/s
+[train] step 50700 | loss 0.0102 | tok_acc 0.9985 | seq_acc 0.9567 | 23.91 it/s
+[train] step 50800 | loss 0.0102 | tok_acc 0.9985 | seq_acc 0.9567 | 23.92 it/s
+[train] step 50900 | loss 0.0102 | tok_acc 0.9985 | seq_acc 0.9567 | 23.92 it/s
+[train] step 51000 | loss 0.0102 | tok_acc 0.9985 | seq_acc 0.9567 | 23.92 it/s
+[gpu:train@51000] id=0 name=NVIDIA RTX A6000 alloc=140.1MB reserved=608.0MB max_alloc=435.3MB
+[train] step 51100 | loss 0.0102 | tok_acc 0.9985 | seq_acc 0.9568 | 23.93 it/s
+[valid] step 100 | loss 0.0017 | tok_acc 0.9998 | seq_acc 0.9925 | 34.46 it/s
+[valid] step 200 | loss 0.0020 | tok_acc 0.9998 | seq_acc 0.9912 | 38.43 it/s
+[valid] step 300 | loss 0.0025 | tok_acc 0.9997 | seq_acc 0.9904 | 38.92 it/s
+[valid] step 400 | loss 0.0020 | tok_acc 0.9998 | seq_acc 0.9919 | 39.56 it/s
+[valid] step 500 | loss 0.0024 | tok_acc 0.9997 | seq_acc 0.9910 | 39.42 it/s
+[valid] step 600 | loss 0.0021 | tok_acc 0.9998 | seq_acc 0.9915 | 39.01 it/s
+[valid] step 700 | loss 0.0020 | tok_acc 0.9998 | seq_acc 0.9920 | 39.11 it/s
+[valid] step 800 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9914 | 39.25 it/s
+[valid] step 900 | loss 0.0022 | tok_acc 0.9998 | seq_acc 0.9914 | 39.00 it/s
+[valid] step 1000 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9910 | 38.84 it/s
+[gpu:valid@1000] id=0 name=NVIDIA RTX A6000 alloc=262.2MB reserved=666.0MB max_alloc=489.7MB
+[valid] step 1100 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9908 | 38.71 it/s
+[valid] step 1200 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9908 | 38.29 it/s
+[valid] step 1300 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9909 | 37.56 it/s
+[valid] step 1400 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9911 | 37.66 it/s
+[valid] step 1500 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9911 | 37.57 it/s
+[valid] step 1600 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9909 | 37.58 it/s
+[valid] step 1700 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9910 | 37.71 it/s
+[valid] step 1800 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9911 | 37.88 it/s
+[valid] step 1900 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9911 | 37.92 it/s
+[valid] step 2000 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9911 | 37.91 it/s
+[gpu:valid@2000] id=0 name=NVIDIA RTX A6000 alloc=275.4MB reserved=666.0MB max_alloc=469.0MB
+[valid] step 2100 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9913 | 37.49 it/s
+[valid] step 2200 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9912 | 37.50 it/s
+[valid] step 2300 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9912 | 37.53 it/s
+[valid] step 2400 | loss 0.0022 | tok_acc 0.9998 | seq_acc 0.9913 | 37.66 it/s
+[valid] step 2500 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9911 | 37.74 it/s
+[valid] step 2600 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9911 | 37.46 it/s
+[valid] step 2700 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9910 | 37.49 it/s
+[valid] step 2800 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9911 | 37.61 it/s
+[valid] step 2900 | loss 0.0024 | tok_acc 0.9997 | seq_acc 0.9909 | 37.60 it/s
+[valid] step 3000 | loss 0.0024 | tok_acc 0.9997 | seq_acc 0.9909 | 37.16 it/s
+[gpu:valid@3000] id=0 name=NVIDIA RTX A6000 alloc=257.5MB reserved=678.0MB max_alloc=479.4MB
+[valid] step 3100 | loss 0.0024 | tok_acc 0.9997 | seq_acc 0.9909 | 37.02 it/s
+[valid] step 3200 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9911 | 36.94 it/s
+[valid] step 3300 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9912 | 36.70 it/s
+[valid] step 3400 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9912 | 36.68 it/s
+[valid] step 3500 | loss 0.0023 | tok_acc 0.9998 | seq_acc 0.9912 | 36.68 it/s
+[valid] step 3600 | loss 0.0023 | tok_acc 0.9997 | seq_acc 0.9911 | 36.70 it/s
+[valid] step 3700 | loss 0.0024 | tok_acc 0.9997 | seq_acc 0.9909 | 36.78 it/s
+epoch 1 | train_loss 0.0102 | train_tok_acc 0.9985 | train_seq_acc 0.9568 || valid_loss 0.0024 | valid_tok_acc 0.9997 | valid_seq_acc 0.9909
+[train] step 100 | loss 0.0032 | tok_acc 0.9996 | seq_acc 0.9838 | 24.95 it/s
+[train] step 200 | loss 0.0058 | tok_acc 0.9992 | seq_acc 0.9700 | 24.36 it/s
+[train] step 300 | loss 0.0057 | tok_acc 0.9992 | seq_acc 0.9704 | 24.28 it/s
+[train] step 400 | loss 0.0059 | tok_acc 0.9992 | seq_acc 0.9684 | 24.82 it/s
+[train] step 500 | loss 0.0057 | tok_acc 0.9992 | seq_acc 0.9692 | 24.95 it/s
+[train] step 600 | loss 0.0052 | tok_acc 0.9993 | seq_acc 0.9721 | 25.11 it/s
+[train] step 700 | loss 0.0051 | tok_acc 0.9993 | seq_acc 0.9721 | 25.16 it/s
+[train] step 800 | loss 0.0051 | tok_acc 0.9993 | seq_acc 0.9727 | 25.27 it/s
+[train] step 900 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9747 | 25.29 it/s
+[train] step 1000 | loss 0.0049 | tok_acc 0.9993 | seq_acc 0.9742 | 25.38 it/s
+[gpu:train@1000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=678.0MB max_alloc=468.4MB
+[train] step 1100 | loss 0.0050 | tok_acc 0.9993 | seq_acc 0.9730 | 25.36 it/s
+[train] step 1200 | loss 0.0049 | tok_acc 0.9993 | seq_acc 0.9733 | 25.16 it/s
+[train] step 1300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 25.30 it/s
+[train] step 1400 | loss 0.0047 | tok_acc 0.9994 | seq_acc 0.9753 | 25.31 it/s
+[train] step 1500 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9764 | 25.40 it/s
+[train] step 1600 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9766 | 25.48 it/s
+[train] step 1700 | loss 0.0043 | tok_acc 0.9994 | seq_acc 0.9768 | 25.57 it/s
+[train] step 1800 | loss 0.0043 | tok_acc 0.9994 | seq_acc 0.9774 | 25.65 it/s
+[train] step 1900 | loss 0.0043 | tok_acc 0.9994 | seq_acc 0.9768 | 25.57 it/s
+[train] step 2000 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9761 | 25.60 it/s
+[gpu:train@2000] id=0 name=NVIDIA RTX A6000 alloc=139.7MB reserved=678.0MB max_alloc=402.1MB
+[train] step 2100 | loss 0.0043 | tok_acc 0.9994 | seq_acc 0.9765 | 25.61 it/s
+[train] step 2200 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9765 | 25.70 it/s
+[train] step 2300 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9763 | 25.66 it/s
+[train] step 2400 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9759 | 25.72 it/s
+[train] step 2500 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9759 | 25.60 it/s
+[train] step 2600 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9758 | 25.46 it/s
+[train] step 2700 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9761 | 25.46 it/s
+[train] step 2800 | loss 0.0046 | tok_acc 0.9994 | seq_acc 0.9754 | 25.49 it/s
+[train] step 2900 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9750 | 25.50 it/s
+[train] step 3000 | loss 0.0046 | tok_acc 0.9994 | seq_acc 0.9751 | 25.56 it/s
+[gpu:train@3000] id=0 name=NVIDIA RTX A6000 alloc=139.9MB reserved=678.0MB max_alloc=456.1MB
+[train] step 3100 | loss 0.0046 | tok_acc 0.9994 | seq_acc 0.9752 | 25.59 it/s
+[train] step 3200 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9753 | 25.65 it/s
+[train] step 3300 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9756 | 25.71 it/s
+[train] step 3400 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9749 | 25.29 it/s
+[train] step 3500 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9749 | 24.95 it/s
+[train] step 3600 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9752 | 24.71 it/s
+[train] step 3700 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9751 | 24.63 it/s
+[train] step 3800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9744 | 24.63 it/s
+[train] step 3900 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9745 | 24.66 it/s
+[train] step 4000 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9739 | 24.70 it/s
+[gpu:train@4000] id=0 name=NVIDIA RTX A6000 alloc=140.4MB reserved=678.0MB max_alloc=393.1MB
+[train] step 4100 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9731 | 24.62 it/s
+[train] step 4200 | loss 0.0049 | tok_acc 0.9993 | seq_acc 0.9727 | 24.65 it/s
+[train] step 4300 | loss 0.0049 | tok_acc 0.9993 | seq_acc 0.9726 | 24.68 it/s
+[train] step 4400 | loss 0.0049 | tok_acc 0.9993 | seq_acc 0.9726 | 24.74 it/s
+[train] step 4500 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9728 | 24.75 it/s
+[train] step 4600 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9731 | 24.79 it/s
+[train] step 4700 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9730 | 24.81 it/s
+[train] step 4800 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9732 | 24.85 it/s
+[train] step 4900 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9732 | 24.88 it/s
+[train] step 5000 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9732 | 24.90 it/s
+[gpu:train@5000] id=0 name=NVIDIA RTX A6000 alloc=140.0MB reserved=678.0MB max_alloc=401.4MB
+[train] step 5100 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9733 | 24.93 it/s
+[train] step 5200 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9734 | 24.93 it/s
+[train] step 5300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9736 | 24.96 it/s
+[train] step 5400 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9738 | 24.99 it/s
+[train] step 5500 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9737 | 24.99 it/s
+[train] step 5600 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9740 | 24.99 it/s
+[train] step 5700 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9738 | 25.00 it/s
+[train] step 5800 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9739 | 25.02 it/s
+[train] step 5900 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9742 | 25.05 it/s
+[train] step 6000 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9744 | 25.03 it/s
+[gpu:train@6000] id=0 name=NVIDIA RTX A6000 alloc=139.7MB reserved=678.0MB max_alloc=431.5MB
+[train] step 6100 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9746 | 25.02 it/s
+[train] step 6200 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9749 | 25.01 it/s
+[train] step 6300 | loss 0.0044 | tok_acc 0.9993 | seq_acc 0.9750 | 25.02 it/s
+[train] step 6400 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9749 | 24.93 it/s
+[train] step 6500 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9745 | 24.86 it/s
+[train] step 6600 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9746 | 24.78 it/s
+[train] step 6700 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9747 | 24.71 it/s
+[train] step 6800 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9746 | 24.55 it/s
+[train] step 6900 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9748 | 24.41 it/s
+[train] step 7000 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9751 | 24.29 it/s
+[gpu:train@7000] id=0 name=NVIDIA RTX A6000 alloc=140.2MB reserved=678.0MB max_alloc=377.8MB
+[train] step 7100 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9752 | 24.19 it/s
+[train] step 7200 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9753 | 24.11 it/s
+[train] step 7300 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9755 | 24.08 it/s
+[train] step 7400 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9755 | 24.05 it/s
+[train] step 7500 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9757 | 24.00 it/s
+[train] step 7600 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9757 | 23.97 it/s
+[train] step 7700 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9758 | 23.94 it/s
+[train] step 7800 | loss 0.0044 | tok_acc 0.9994 | seq_acc 0.9756 | 23.93 it/s
+[train] step 7900 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9750 | 23.91 it/s
+[train] step 8000 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9747 | 23.87 it/s
+[gpu:train@8000] id=0 name=NVIDIA RTX A6000 alloc=140.0MB reserved=678.0MB max_alloc=413.3MB
+[train] step 8100 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9745 | 23.82 it/s
+[train] step 8200 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9744 | 23.80 it/s
+[train] step 8300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9743 | 23.74 it/s
+[train] step 8400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9742 | 23.68 it/s
+[train] step 8500 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9744 | 23.62 it/s
+[train] step 8600 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9744 | 23.59 it/s
+[train] step 8700 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9745 | 23.52 it/s
+[train] step 8800 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9747 | 23.50 it/s
+[train] step 8900 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9746 | 23.46 it/s
+[train] step 9000 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9746 | 23.44 it/s
+[gpu:train@9000] id=0 name=NVIDIA RTX A6000 alloc=140.7MB reserved=678.0MB max_alloc=390.8MB
+[train] step 9100 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9748 | 23.43 it/s
+[train] step 9200 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9749 | 23.37 it/s
+[train] step 9300 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9749 | 23.34 it/s
+[train] step 9400 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9751 | 23.32 it/s
+[train] step 9500 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9751 | 23.30 it/s
+[train] step 9600 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9751 | 23.29 it/s
+[train] step 9700 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9752 | 23.26 it/s
+[train] step 9800 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9754 | 23.22 it/s
+[train] step 9900 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9753 | 23.20 it/s
+[train] step 10000 | loss 0.0045 | tok_acc 0.9994 | seq_acc 0.9752 | 23.16 it/s
+[gpu:train@10000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=678.0MB max_alloc=426.1MB
+[train] step 10100 | loss 0.0045 | tok_acc 0.9993 | seq_acc 0.9750 | 23.12 it/s
+[train] step 10200 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9749 | 23.09 it/s
+[train] step 10300 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9747 | 23.06 it/s
+[train] step 10400 | loss 0.0046 | tok_acc 0.9993 | seq_acc 0.9747 | 23.02 it/s
+[train] step 10500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9745 | 22.97 it/s
+[train] step 10600 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9743 | 22.95 it/s
+[train] step 10700 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9743 | 22.94 it/s
+[train] step 10800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9742 | 22.90 it/s
+[train] step 10900 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9740 | 22.87 it/s
+[train] step 11000 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9741 | 22.83 it/s
+[gpu:train@11000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=678.0MB max_alloc=407.0MB
+[train] step 11100 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9741 | 22.82 it/s
+[train] step 11200 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9740 | 22.79 it/s
+[train] step 11300 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9739 | 22.78 it/s
+[train] step 11400 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9739 | 22.76 it/s
+[train] step 11500 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9739 | 22.74 it/s
+[train] step 11600 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9740 | 22.71 it/s
+[train] step 11700 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9741 | 22.67 it/s
+[train] step 11800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9742 | 22.65 it/s
+[train] step 11900 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9743 | 22.63 it/s
+[train] step 12000 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9743 | 22.59 it/s
+[gpu:train@12000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=678.0MB max_alloc=398.6MB
+[train] step 12100 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9742 | 22.58 it/s
+[train] step 12200 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9741 | 22.56 it/s
+[train] step 12300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9741 | 22.55 it/s
+[train] step 12400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9740 | 22.52 it/s
+[train] step 12500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9739 | 22.50 it/s
+[train] step 12600 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9739 | 22.48 it/s
+[train] step 12700 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9740 | 22.44 it/s
+[train] step 12800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9741 | 22.40 it/s
+[train] step 12900 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9742 | 22.36 it/s
+[train] step 13000 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9741 | 22.32 it/s
+[gpu:train@13000] id=0 name=NVIDIA RTX A6000 alloc=140.2MB reserved=678.0MB max_alloc=403.5MB
+[train] step 13100 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9741 | 22.28 it/s
+[train] step 13200 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9743 | 22.23 it/s
+[train] step 13300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9743 | 22.18 it/s
+[train] step 13400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9744 | 22.11 it/s
+[train] step 13500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9742 | 22.06 it/s
+[train] step 13600 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9742 | 22.00 it/s
+[train] step 13700 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9741 | 21.97 it/s
+[train] step 13800 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9742 | 21.91 it/s
+[train] step 13900 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9742 | 21.87 it/s
+[train] step 14000 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9742 | 21.86 it/s
+[gpu:train@14000] id=0 name=NVIDIA RTX A6000 alloc=140.2MB reserved=678.0MB max_alloc=395.6MB
+[train] step 14100 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9742 | 21.85 it/s
+[train] step 14200 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9743 | 21.84 it/s
+[train] step 14300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9743 | 21.83 it/s
+[train] step 14400 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9742 | 21.83 it/s
+[train] step 14500 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9742 | 21.82 it/s
+[train] step 14600 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9741 | 21.81 it/s
+[train] step 14700 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9741 | 21.81 it/s
+[train] step 14800 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9742 | 21.81 it/s
+[train] step 14900 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9741 | 21.80 it/s
+[train] step 15000 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9741 | 21.80 it/s
+[gpu:train@15000] id=0 name=NVIDIA RTX A6000 alloc=140.0MB reserved=678.0MB max_alloc=425.7MB
+[train] step 15100 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9741 | 21.65 it/s
+[train] step 15200 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9740 | 21.63 it/s
+[train] step 15300 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9739 | 21.62 it/s
+[train] step 15400 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9739 | 21.61 it/s
+[train] step 15500 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9740 | 21.59 it/s
+[train] step 15600 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9740 | 21.58 it/s
+[train] step 15700 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9741 | 21.55 it/s
+[train] step 15800 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9742 | 21.52 it/s
+[train] step 15900 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.51 it/s
+[train] step 16000 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9744 | 21.51 it/s
+[gpu:train@16000] id=0 name=NVIDIA RTX A6000 alloc=139.9MB reserved=678.0MB max_alloc=414.9MB
+[train] step 16100 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9744 | 21.51 it/s
+[train] step 16200 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9744 | 21.52 it/s
+[train] step 16300 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9744 | 21.49 it/s
+[train] step 16400 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9744 | 21.48 it/s
+[train] step 16500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9745 | 21.44 it/s
+[train] step 16600 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9745 | 21.41 it/s
+[train] step 16700 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9744 | 21.40 it/s
+[train] step 16800 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.40 it/s
+[train] step 16900 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9744 | 21.39 it/s
+[train] step 17000 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9744 | 21.37 it/s
+[gpu:train@17000] id=0 name=NVIDIA RTX A6000 alloc=140.2MB reserved=678.0MB max_alloc=389.5MB
+[train] step 17100 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.35 it/s
+[train] step 17200 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.34 it/s
+[train] step 17300 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.33 it/s
+[train] step 17400 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.32 it/s
+[train] step 17500 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.32 it/s
+[train] step 17600 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.32 it/s
+[train] step 17700 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.31 it/s
+[train] step 17800 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.31 it/s
+[train] step 17900 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.31 it/s
+[train] step 18000 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.29 it/s
+[gpu:train@18000] id=0 name=NVIDIA RTX A6000 alloc=139.7MB reserved=678.0MB max_alloc=393.8MB
+[train] step 18100 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9743 | 21.28 it/s
+[train] step 18200 | loss 0.0048 | tok_acc 0.9993 | seq_acc 0.9744 | 21.27 it/s
+[train] step 18300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9744 | 21.25 it/s
+[train] step 18400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9745 | 21.23 it/s
+[train] step 18500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9745 | 21.22 it/s
+[train] step 18600 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 21.19 it/s
+[train] step 18700 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 21.18 it/s
+[train] step 18800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 21.17 it/s
+[train] step 18900 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 21.16 it/s
+[train] step 19000 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 21.15 it/s
+[gpu:train@19000] id=0 name=NVIDIA RTX A6000 alloc=139.6MB reserved=678.0MB max_alloc=384.2MB
+[train] step 19100 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 21.11 it/s
+[train] step 19200 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 21.06 it/s
+[train] step 19300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 20.99 it/s
+[train] step 19400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9747 | 20.94 it/s
+[train] step 19500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 20.89 it/s
+[train] step 19600 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9745 | 20.77 it/s
+[train] step 19700 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9744 | 20.76 it/s
+[train] step 19800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9744 | 20.74 it/s
+[train] step 19900 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9744 | 20.74 it/s
+[train] step 20000 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9744 | 20.74 it/s
+[gpu:train@20000] id=0 name=NVIDIA RTX A6000 alloc=139.7MB reserved=678.0MB max_alloc=380.7MB
+[train] step 20100 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9744 | 20.74 it/s
+[train] step 20200 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9745 | 20.73 it/s
+[train] step 20300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9745 | 20.72 it/s
+[train] step 20400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 20.71 it/s
+[train] step 20500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 20.69 it/s
+[train] step 20600 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9747 | 20.67 it/s
+[train] step 20700 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9747 | 20.65 it/s
+[train] step 20800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9747 | 20.64 it/s
+[train] step 20900 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9746 | 20.64 it/s
+[train] step 21000 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9747 | 20.62 it/s
+[gpu:train@21000] id=0 name=NVIDIA RTX A6000 alloc=139.8MB reserved=678.0MB max_alloc=434.4MB
+[train] step 21100 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9747 | 20.64 it/s
+[train] step 21200 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9747 | 20.66 it/s
+[train] step 21300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9747 | 20.68 it/s
+[train] step 21400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9748 | 20.70 it/s
+[train] step 21500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9748 | 20.72 it/s
+[train] step 21600 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9748 | 20.75 it/s
+[train] step 21700 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.77 it/s
+[train] step 21800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.79 it/s
+[train] step 21900 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9748 | 20.80 it/s
+[train] step 22000 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9748 | 20.80 it/s
+[gpu:train@22000] id=0 name=NVIDIA RTX A6000 alloc=140.0MB reserved=678.0MB max_alloc=417.9MB
+[train] step 22100 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9748 | 20.81 it/s
+[train] step 22200 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9748 | 20.81 it/s
+[train] step 22300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.80 it/s
+[train] step 22400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.80 it/s
+[train] step 22500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.79 it/s
+[train] step 22600 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.78 it/s
+[train] step 22700 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.76 it/s
+[train] step 22800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9748 | 20.75 it/s
+[train] step 22900 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.73 it/s
+[train] step 23000 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.71 it/s
+[gpu:train@23000] id=0 name=NVIDIA RTX A6000 alloc=140.5MB reserved=678.0MB max_alloc=397.5MB
+[train] step 23100 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.68 it/s
+[train] step 23200 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9750 | 20.66 it/s
+[train] step 23300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9750 | 20.64 it/s
+[train] step 23400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9751 | 20.61 it/s
+[train] step 23500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9750 | 20.57 it/s
+[train] step 23600 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9750 | 20.54 it/s
+[train] step 23700 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.50 it/s
+[train] step 23800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.47 it/s
+[train] step 23900 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.44 it/s
+[train] step 24000 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9750 | 20.41 it/s
+[gpu:train@24000] id=0 name=NVIDIA RTX A6000 alloc=140.4MB reserved=678.0MB max_alloc=399.9MB
+[train] step 24100 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.37 it/s
+[train] step 24200 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.34 it/s
+[train] step 24300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.35 it/s
+[train] step 24400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9750 | 20.33 it/s
+[train] step 24500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9750 | 20.32 it/s
+[train] step 24600 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.31 it/s
+[train] step 24700 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.31 it/s
+[train] step 24800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.30 it/s
+[train] step 24900 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9749 | 20.30 it/s
+[train] step 25000 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9750 | 20.31 it/s
+[gpu:train@25000] id=0 name=NVIDIA RTX A6000 alloc=140.2MB reserved=678.0MB max_alloc=478.2MB
+[train] step 25100 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9750 | 20.32 it/s
+[train] step 25200 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9751 | 20.33 it/s
+[train] step 25300 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9750 | 20.34 it/s
+[train] step 25400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9751 | 20.35 it/s
+[train] step 25500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9751 | 20.35 it/s
+[train] step 25600 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9752 | 20.35 it/s
+[train] step 25700 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9752 | 20.35 it/s
+[train] step 25800 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9752 | 20.35 it/s
+[train] step 25900 | loss 0.0047 | tok_acc 0.9994 | seq_acc 0.9752 | 20.34 it/s
+[train] step 26000 | loss 0.0047 | tok_acc 0.9994 | seq_acc 0.9753 | 20.33 it/s
+[gpu:train@26000] id=0 name=NVIDIA RTX A6000 alloc=140.1MB reserved=678.0MB max_alloc=417.0MB
+[train] step 26100 | loss 0.0047 | tok_acc 0.9994 | seq_acc 0.9753 | 20.33 it/s
+[train] step 26200 | loss 0.0047 | tok_acc 0.9994 | seq_acc 0.9753 | 20.34 it/s
+[train] step 26300 | loss 0.0047 | tok_acc 0.9994 | seq_acc 0.9753 | 20.33 it/s
+[train] step 26400 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9752 | 20.32 it/s
+[train] step 26500 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9752 | 20.31 it/s
+[train] step 26600 | loss 0.0047 | tok_acc 0.9993 | seq_acc 0.9752 | 20.30 it/s
+[train] step 26700 | loss 0.0047 | tok_acc 0.9994 | seq_acc 0.9752 | 20.29 it/s
+[train] step 26800 | loss 0.0047 | tok_acc 0.9994 | seq_acc 0.9752 | 20.27 it/s

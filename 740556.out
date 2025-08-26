@@ -1,0 +1,23 @@
+Python: /new-stg/home/aaron/miniconda/envs/g2s_env/bin/python
+CUDA available: True
+CUDA_VISIBLE_DEVICES: 0
+usage: train_expert [-h] --expert {smiles,graph,cond,gnn3d} --train_bin
+                    TRAIN_BIN --valid_bin VALID_BIN [--epochs EPOCHS]
+                    [--batch_size BATCH_SIZE] [--lr LR]
+                    [--vocab_size VOCAB_SIZE] [--hidden HIDDEN]
+                    [--layers LAYERS] [--heads HEADS] [--ff FF]
+                    [--device DEVICE] [--save_path SAVE_PATH]
+                    [--config CONFIG] [--pad_id PAD_ID] [--bos_id BOS_ID]
+                    [--eos_id EOS_ID] [--num_workers NUM_WORKERS]
+                    [--pin_memory] [--prefetch_factor PREFETCH_FACTOR]
+                    [--persistent_workers] [--log_every LOG_EVERY]
+                    [--warmup_check] [--metrics_csv METRICS_CSV]
+                    [--batch_metrics_csv BATCH_METRICS_CSV] [--logdir LOGDIR]
+                    [--grad_clip GRAD_CLIP]
+                    [--loss_spike_factor LOSS_SPIKE_FACTOR]
+                    [--loss_spike_warmup LOSS_SPIKE_WARMUP]
+                    [--loss_floor LOSS_FLOOR]
+                    [--outlier_policy {skip,cap_ema,cap_running}]
+                    [--gpu_debug] [--gpu_report_every GPU_REPORT_EVERY]
+                    [--target_key TARGET_KEY] [--logits_key LOGITS_KEY]
+train_expert: error: the following arguments are required: --expert, --train_bin, --valid_bin
