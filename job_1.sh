@@ -27,4 +27,20 @@ PY
 cd "$SLURM_SUBMIT_DIR"
 mkdir -p runs/experts runs/tb
 
-python -m hetero_moe.training.train_expert   --expert smiles   --config hetero_moe/configs/smiles_expert.yaml   --train_bin hetero_moe/data/processed/uspto/graph2smiles_npz/train_0.npz   --valid_bin hetero_moe/data/processed/uspto/graph2smiles_npz/val_0.npz   --save_path runs/experts/smiles.pt   --epochs 100 --batch_size 8 --device cuda   --grad_clip 1.0   --loss_spike_factor 8 --loss_spike_warmup 2000 --loss_floor 0.02 --outlier_policy cap_running   --num_workers 2 --pin_memory --persistent_workers   --log_every 100   --metrics_csv runs/experts/smiles.metrics.csv   --batch_metrics_csv runs/experts/smiles.batch_metrics.csv   --gpu_debug --gpu_report_every 1000
+python -m hetero_moe.training.train_moe_ntf \
+  --experts graph,smiles \
+  --config hetero_moe/configs/smiles_expert.yaml \
+  --train_bin hetero_moe/data/processed/uspto/graph2smiles_npz/train_0.npz \
+  --valid_bin hetero_moe/data/processed/uspto/graph2smiles_npz/val_0.npz \
+  --epochs 100 --batch_size 8 --device cuda --lr 1e-3 --grad_clip 1.0 \
+  --max_steps_per_seq 256 --stop_on_eos \
+  --tf_warmup_steps 32 --aux_alpha 0.3 \
+  --router_use_gatefeats --router_gate_dim 2048 \
+  --log_every 100 --gpu_debug --gpu_report_every 1000 \
+  --save_path runs/moe_ntf/smiles_x2.pt \
+  --metrics_csv runs/moe_ntf/smiles_x2.metrics.csv \
+  --batch_metrics_csv runs/moe_ntf/smiles_x2.batches.csv \
+  --valid_eval_em --valid_em_batches 100 \
+  --num_workers 4 --pin_memory --persistent_workers \
+  --target_key target_ids --inspect_batch
+
