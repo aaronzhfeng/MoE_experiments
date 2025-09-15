@@ -32,15 +32,17 @@ python -m hetero_moe.training.train_moe_ntf \
   --config hetero_moe/configs/smiles_expert.yaml \
   --train_bin hetero_moe/data/processed/uspto/graph2smiles_npz/train_0.npz \
   --valid_bin hetero_moe/data/processed/uspto/graph2smiles_npz/val_0.npz \
-  --epochs 100 --batch_size 8 --device cuda --lr 1e-3 --grad_clip 1.0 \
-  --max_steps_per_seq 256 --stop_on_eos \
-  --tf_warmup_steps 32 --aux_alpha 0.3 \
+  --epochs 10 --batch_size 8 --device cuda \
+  --lr 3e-4 --weight_decay 0.01 --grad_clip 1.0 \
   --router_use_gatefeats --router_gate_dim 2048 \
+  --router_temp 0.7 --router_logit_clip 30 \
+  --logit_clip 60 --max_loss_to_skip 50 --nan_policy mask_expert \
+  --tf_warmup_steps 64 --stop_on_eos --max_steps_per_seq 256 \
+  --num_workers 4 --pin_memory --persistent_workers \
+  --target_key target_ids --inspect_batch \
   --log_every 100 --gpu_debug --gpu_report_every 1000 \
   --save_path runs/moe_ntf/smiles_x2.pt \
   --metrics_csv runs/moe_ntf/smiles_x2.metrics.csv \
   --batch_metrics_csv runs/moe_ntf/smiles_x2.batches.csv \
-  --valid_eval_em --valid_em_batches 100 \
-  --num_workers 4 --pin_memory --persistent_workers \
-  --target_key target_ids --inspect_batch
+  --valid_eval_em --valid_em_batches 100
 
