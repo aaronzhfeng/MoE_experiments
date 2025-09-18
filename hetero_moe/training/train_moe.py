@@ -93,6 +93,33 @@ def maybe_gpu_report(tag: str, step: int, args):
         print(f"[gpu:{tag}@{step}] id={dev} {name} alloc={alloc:.1f}MB reserved={reserved:.1f}MB peak={peak:.1f}MB")
 
 
+def _counts_from_logits(logits: torch.Tensor, tgt: torch.Tensor, pad_id: int, eos_id: int):
+    """Compute token- and sequence-level accuracy counts from logits and targets.
+
+    Returns (correct_tokens, total_tokens, seq_matches, n_samples).
+    """
+    # normalize shapes
+    if logits.dim() == 2:
+        logits = logits.unsqueeze(1)  # (B,V) -> (B,1,V)
+    if tgt.dim() == 1:
+        tgt = tgt.unsqueeze(1)
+    preds = logits.argmax(dim=-1)      # (B,T)
+    mask = tgt.ne(pad_id)
+    correct_tokens = int((preds.eq(tgt) & mask).sum().item())
+    total_tokens = int(mask.sum().item())
+    # exact match up to first EOS in tgt
+    bsz, tlen = tgt.shape
+    seq_matches = 0
+    for i in range(bsz):
+        row_t = tgt[i]
+        row_p = preds[i]
+        eos_pos = (row_t == eos_id).nonzero(as_tuple=False)
+        cutoff = int(eos_pos[0].item()) if eos_pos.numel() > 0 else tlen
+        ok = torch.all(row_t[:cutoff].eq(row_p[:cutoff]))
+        seq_matches += int(bool(ok.item()))
+    return correct_tokens, total_tokens, seq_matches, bsz
+
+
 def build_loaders(args):
     train_ds = USPTODataset(args.train_bin)
     valid_ds = USPTODataset(args.valid_bin)
@@ -271,6 +298,11 @@ def main():
         v_running = 0.0
         v_running_bal = 0.0
         v_steps = 0
+        # accuracy accumulators
+        v_tok_correct = 0
+        v_tok_total = 0
+        v_seq_matches = 0
+        v_samples = 0
         with torch.no_grad():
             for vstep, batch in enumerate(valid_loader, start=1):
                 batch = to_device_batch(batch, device)
@@ -282,6 +314,19 @@ def main():
                 v_running_bal += float(v_bal.detach().cpu())
                 v_steps += 1
 
+                # logits for accuracy
+                try:
+                    logits = model.predict_logits(batch)
+                    tgt = batch.get("target_ids")
+                    if isinstance(logits, torch.Tensor) and torch.is_tensor(tgt):
+                        ct, tt, sm, bs = _counts_from_logits(logits, tgt, pad_id=args.pad_id, eos_id=args.eos_id)
+                        v_tok_correct += ct
+                        v_tok_total += tt
+                        v_seq_matches += sm
+                        v_samples += bs
+                except Exception:
+                    pass
+
                 if args.max_valid_steps and vstep >= args.max_valid_steps:
                     break
 
@@ -290,13 +335,16 @@ def main():
                     maybe_gpu_report("valid", vstep, args)
 
         v_loss_mean = v_running / max(1, v_steps)
-        print(f"epoch {epoch} | valid_loss {v_loss_mean:.4f}")
+        v_tok_acc = (v_tok_correct / v_tok_total) if v_tok_total > 0 else float("nan")
+        v_seq_acc = (v_seq_matches / v_samples) if v_samples > 0 else float("nan")
+        print(f"epoch {epoch} | valid_loss {v_loss_mean:.4f} | valid_tok_acc {v_tok_acc:.4f} | valid_seq_acc {v_seq_acc:.4f}")
 
         # --------------------
         # Save
         # --------------------
         if args.save_path:
-            payload = {"model": model.state_dict(), "epoch": epoch, "valid_loss": v_loss_mean}
+            payload = {"model": model.state_dict(), "epoch": epoch, "valid_loss": v_loss_mean,
+                       "valid_tok_acc": float(v_tok_acc), "valid_seq_acc": float(v_seq_acc)}
             torch.save(payload, args.save_path)
             if v_loss_mean < best_val:
                 best_val = v_loss_mean

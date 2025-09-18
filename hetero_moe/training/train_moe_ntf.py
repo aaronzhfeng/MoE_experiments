@@ -306,6 +306,8 @@ def decode_and_loss_moe(
     tok_total = torch.tensor(0.0, device=device)
 
     pred_prefix = torch.empty((B, 0), dtype=torch.long, device=device)
+    em_correct = torch.tensor(0.0, device=device)
+    em_total = torch.tensor(0.0, device=device)
 
     router_entropy_accum = torch.tensor(0.0, device=device)
     router_entropy_count = 0
@@ -380,8 +382,22 @@ def decode_and_loss_moe(
     if router_entropy_count > 0 and router_entropy_beta != 0.0:
         base_loss = base_loss + router_entropy_beta * (router_entropy_accum / router_entropy_count)
 
+    # exact-match per sample up to first EOS (compare gold vs pred_prefix)
+    for i in range(B):
+        Lg = first_eos_len(gold[i], eos_id=eos_id, pad_id=pad_id)
+        Lp = first_eos_len(pred_prefix[i], eos_id=eos_id, pad_id=pad_id)
+        L = max(Lg, Lp)
+        if torch.equal(gold[i][:L], pred_prefix[i][:L]):
+            em_correct += 1.0
+        em_total += 1.0
+
     tok_acc = (tok_correct / tok_total.clamp_min(1.0)).item()
-    return base_loss, tok_acc, {"tok_correct": tok_correct.item(), "tok_total": tok_total.item()}
+    return base_loss, tok_acc, {
+        "tok_correct": float(tok_correct.item()),
+        "tok_total": float(tok_total.item()),
+        "em_correct": float(em_correct.item()),
+        "em_total": float(em_total.item()),
+    }
 
 
 @torch.no_grad()
@@ -685,12 +701,13 @@ def main():
         with torch.no_grad():
             v_loss_sum, v_loss_cnt = 0.0, 0.0
             v_acc_sum, v_acc_cnt = 0.0, 0.0
+            v_em_sum, v_em_cnt = 0.0, 0.0
             for batch in valid_loader:
                 target_key = _auto_target_key(batch, args.target_key)
                 for k, v in batch.items():
                     if isinstance(v, torch.Tensor):
                         batch[k] = v.to(device, non_blocking=True)
-                loss, tok_acc, _ = decode_and_loss_moe(
+                loss, tok_acc, aux = decode_and_loss_moe(
                     experts, router, batch,
                     device=device,
                     target_key=target_key,
@@ -705,12 +722,15 @@ def main():
                 )
                 v_loss_sum += float(loss.item()); v_loss_cnt += 1.0
                 v_acc_sum  += float(tok_acc);    v_acc_cnt  += 1.0
+                if isinstance(aux, dict) and "em_correct" in aux and "em_total" in aux:
+                    v_em_sum += float(aux["em_correct"]); v_em_cnt += float(aux["em_total"])
 
             valid_loss = v_loss_sum / max(1.0, v_loss_cnt)
             valid_tok_acc = v_acc_sum / max(1.0, v_acc_cnt)
+            valid_em = (v_em_sum / max(1.0, v_em_cnt)) if v_em_cnt > 0 else None
 
-        em_val = None
-        if args.valid_eval_em:
+        em_val = valid_em
+        if args.valid_eval_em and em_val is None:
             # grab a target key from one fresh batch
             vb = next(iter(DataLoader(valid_ds, batch_size=args.batch_size, collate_fn=collate)))
             tkey = _auto_target_key(vb, args.target_key)
