@@ -106,7 +106,46 @@ def main() -> None:
 
     g2s_pre = _import_graph2smiles_preprocess()
 
+    # If inputs look space-tokenized, create de-tokenized temporary copies for RDKit parsing
+    def _needs_detok(path: str) -> bool:
+        try:
+            with open(path, "r") as f:
+                for _ in range(5):
+                    line = f.readline()
+                    if not line:
+                        break
+                    # Heuristic: many spaces and bracketed tokens suggest tokenized SMILES
+                    if " " in line.strip():
+                        return True
+            return False
+        except Exception:
+            return False
+
+    def _detok_file(src_path: str, dst_path: str) -> None:
+        with open(src_path, "r") as fin, open(dst_path, "w") as fout:
+            for line in fin:
+                # remove spaces between tokens to form a valid SMILES/reaction string
+                fout.write(line.replace(" ", "").strip() + "\n")
+
+    stage_dir = os.path.join(args.out_dir, "_detok_stage")
+    os.makedirs(stage_dir, exist_ok=True)
+
+    def _maybe_detok(path: str, name: str) -> str:
+        if _needs_detok(path):
+            dst = os.path.join(stage_dir, name)
+            _detok_file(path, dst)
+            return dst
+        return path
+
     # Build the argument list for Graph2SMILES preprocess
+    # Optionally detokenize to temporary files
+    train_src_p = _maybe_detok(train_src, "train.src")
+    train_tgt_p = _maybe_detok(train_tgt, "train.tgt")
+    val_src_p = _maybe_detok(val_src, "val.src")
+    val_tgt_p = _maybe_detok(val_tgt, "val.tgt")
+    test_src_p = _maybe_detok(test_src, "test.src")
+    test_tgt_p = _maybe_detok(test_tgt, "test.tgt")
+
     g2s_cli = [
         "--model", args.model,
         "--task", "reaction_prediction",
@@ -116,12 +155,12 @@ def main() -> None:
         "--max_tgt_len", str(args.max_tgt_len),
         "--num_workers", str(args.workers),
         "--do_tokenize",
-        "--train_src", train_src,
-        "--train_tgt", train_tgt,
-        "--val_src", val_src,
-        "--val_tgt", val_tgt,
-        "--test_src", test_src,
-        "--test_tgt", test_tgt,
+        "--train_src", train_src_p,
+        "--train_tgt", train_tgt_p,
+        "--val_src", val_src_p,
+        "--val_tgt", val_tgt_p,
+        "--test_src", test_src_p,
+        "--test_tgt", test_tgt_p,
         "--preprocess_output_path", args.out_dir,
     ]
 
