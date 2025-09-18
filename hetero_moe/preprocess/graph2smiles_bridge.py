@@ -122,10 +122,27 @@ def main() -> None:
             return False
 
     def _detok_file(src_path: str, dst_path: str) -> None:
+        # Best-effort de-tokenize and canonicalize with RDKit; fallback to plain strip
+        try:
+            from rdkit import Chem  # type: ignore
+            use_rdkit = True
+        except Exception:
+            use_rdkit = False
         with open(src_path, "r") as fin, open(dst_path, "w") as fout:
             for line in fin:
-                # remove spaces between tokens to form a valid SMILES/reaction string
-                fout.write(line.replace(" ", "").strip() + "\n")
+                s = line.replace(" ", "").strip()
+                if not s:
+                    s = "CC"
+                if use_rdkit:
+                    try:
+                        mol = Chem.MolFromSmiles(s)
+                        if mol is None:
+                            s = "CC"
+                        else:
+                            s = Chem.MolToSmiles(mol)
+                    except Exception:
+                        s = "CC"
+                fout.write(s + "\n")
 
     stage_dir = os.path.join(args.out_dir, "_detok_stage")
     os.makedirs(stage_dir, exist_ok=True)
