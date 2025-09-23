@@ -1,5 +1,19 @@
 ### Cluster quick reference (GPU, Slurm, environment)
 
+Table of contents
+- [Quick system checks](#quick-system-checks)
+- [Slurm overview](#slurm-overview)
+- [Check GPU availability](#check-gpu-availability)
+- [Quick GPU status checks (login node)](#quick-gpu-status-checks-login-node)
+- [Submit a GPU job (template)](#submit-a-gpu-job-template)
+- [Monitor and manage jobs](#monitor-and-manage-jobs)
+  - [Job monitoring (watch & logs)](#job-monitoring-watch--logs)
+- [Environment: conda and modules](#environment-conda-and-modules)
+- [Storage and quotas](#storage-and-quotas)
+- [Networking / proxy](#networking--proxy)
+- [Troubleshooting](#troubleshooting)
+- [Handy aliases (defined in ~/.bashrc)](#handy-aliases-defined-in-bashrc)
+
 This guide captures how to check GPU availability, submit/manage jobs, and handle environment basics on this cluster. It excludes project-specific instructions.
 
 ### Quick system checks
@@ -164,6 +178,32 @@ scancel <JOBID>
 
 # Follow logs
 tail -f slurm-<JOBID>.out
+```
+
+#### Job monitoring (watch & logs)
+
+```bash
+# Replace <JOBID> with your job id
+
+# Auto-refresh queue status
+watch -n 2 'squeue -j <JOBID>'
+
+# Live follow last 50 lines of the job's log (default path from job_2.sh)
+watch -n 1 'tail -n 10 logs/moe-ord-<JOBID>.out'
+
+watch -n 5 'tail -n 10 logs/moe-ord-747367.out'
+
+# Or just tail the full log
+tail -n 200 -f logs/moe-ord-<JOBID>.out
+
+# If the log file isn't created yet, wait for it then follow
+while [ ! -f "logs/moe-ord-<JOBID>.out" ]; do sleep 1; done; tail -f logs/moe-ord-<JOBID>.out
+
+# Inspect detailed job fields and reason
+scontrol show job <JOBID> | egrep 'JobState|Reason|NodeList|StartTime|RunTime|StdOut|Gres'
+
+# Historical accounting (if enabled on the cluster)
+sacct -j <JOBID> --format=JobID,State,ExitCode,Start,End,Elapsed,NodeList,ReqTRES,AllocTRES
 ```
 
 ### Environment: conda and modules

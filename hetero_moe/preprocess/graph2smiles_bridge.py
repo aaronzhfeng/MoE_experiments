@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import os
 import sys
+from typing import Optional
 
 
 def _get_repo_root() -> str:
@@ -106,6 +107,13 @@ def main() -> None:
 
     g2s_pre = _import_graph2smiles_preprocess()
 
+    # Suppress RDKit verbosity if available
+    try:
+        from rdkit import RDLogger  # type: ignore
+        RDLogger.DisableLog('rdApp.*')
+    except Exception:
+        pass
+
     # If inputs look space-tokenized, create de-tokenized temporary copies for RDKit parsing
     def _needs_detok(path: str) -> bool:
         try:
@@ -114,54 +122,116 @@ def main() -> None:
                     line = f.readline()
                     if not line:
                         break
-                    # Heuristic: many spaces and bracketed tokens suggest tokenized SMILES
-                    if " " in line.strip():
+                    # Heuristic: spaces or reaction arrows suggest sanitization needed
+                    if (" " in line) or (">>" in line) or (">" in line):
                         return True
             return False
         except Exception:
             return False
 
-    def _detok_file(src_path: str, dst_path: str) -> None:
-        # Best-effort de-tokenize and canonicalize with RDKit; fallback to plain strip
+    def _sanitize_one(s: str, *, is_src: bool, stats: Optional[dict] = None) -> str:
+        s = s.replace(" ", "").strip()
+        if not s:
+            return "CC"
+        # If reaction arrow present, pick side based on file role
+        if ">>" in s:
+            left, right = s.split(">>", 1)
+            s = left if is_src else right
+            if stats is not None:
+                stats["arrow_split"] = stats.get("arrow_split", 0) + 1
+        elif ">" in s:
+            parts = s.split(">")
+            # common reaction format: reactants>reagents>products
+            if len(parts) >= 3:
+                s = parts[0] if is_src else parts[-1]
+            else:
+                s = parts[0] if is_src else parts[-1]
+            if stats is not None:
+                stats["arrow_split"] = stats.get("arrow_split", 0) + 1
         try:
             from rdkit import Chem  # type: ignore
             use_rdkit = True
         except Exception:
             use_rdkit = False
+
+        if not use_rdkit:
+            return s or "CC"
+        try:
+            mol = Chem.MolFromSmiles(s)
+            if mol is not None:
+                can = Chem.MolToSmiles(mol)
+                if stats is not None and can != s:
+                    stats["canonicalized"] = stats.get("canonicalized", 0) + 1
+                return can
+        except Exception:
+            pass
+        # Salvage: split mixture and keep valid parts
+        salvage = []
+        for part in s.split('.'):
+            if not part:
+                continue
+            try:
+                m = Chem.MolFromSmiles(part)
+                if m is not None:
+                    salvage.append(Chem.MolToSmiles(m))
+            except Exception:
+                continue
+        if salvage:
+            if stats is not None:
+                stats["salvaged"] = stats.get("salvaged", 0) + 1
+            return ".".join(salvage)
+        return "CC"
+
+    def _detok_file(src_path: str, dst_path: str, *, is_src: bool) -> dict:
+        # Best-effort de-tokenize and canonicalize with RDKit; fallback to plain strip
+        stats = {"replaced": 0, "arrow_split": 0, "canonicalized": 0, "salvaged": 0, "total": 0}
+        # total lines for progress bar
+        try:
+            total = sum(1 for _ in open(src_path, "r"))
+        except Exception:
+            total = None
+        # tqdm wrapper (no-op if tqdm missing)
+        def _tqdm(iterable, total=None, desc: str = ""):
+            try:
+                from tqdm import tqdm  # type: ignore
+                return tqdm(iterable, total=total, unit="lines", desc=desc, leave=False)
+            except Exception:
+                return iterable
+
         with open(src_path, "r") as fin, open(dst_path, "w") as fout:
-            for line in fin:
-                s = line.replace(" ", "").strip()
-                if not s:
-                    s = "CC"
-                if use_rdkit:
-                    try:
-                        mol = Chem.MolFromSmiles(s)
-                        if mol is None:
-                            s = "CC"
-                        else:
-                            s = Chem.MolToSmiles(mol)
-                    except Exception:
-                        s = "CC"
+            for line in _tqdm(fin, total=total, desc=f"sanitize:{os.path.basename(dst_path)}"):
+                original = line.rstrip("\n")
+                before = original.replace(" ", "").strip()
+                s = _sanitize_one(before, is_src=is_src, stats=stats)
+                if s == "CC" and (before and before != "CC"):
+                    stats["replaced"] += 1
                 fout.write(s + "\n")
+        stats["total"] = total or stats.get("total", 0)
+        return stats
 
     stage_dir = os.path.join(args.out_dir, "_detok_stage")
     os.makedirs(stage_dir, exist_ok=True)
 
-    def _maybe_detok(path: str, name: str) -> str:
+    def _maybe_detok(path: str, name: str, *, is_src: bool) -> str:
         if _needs_detok(path):
             dst = os.path.join(stage_dir, name)
-            _detok_file(path, dst)
+            stats = _detok_file(path, dst, is_src=is_src)
+            print(
+                f"[bridge] sanitized {name}: total={stats.get('total', -1)} "
+                f"arrow_split={stats.get('arrow_split', 0)} canonicalized={stats.get('canonicalized', 0)} "
+                f"salvaged={stats.get('salvaged', 0)} replaced={stats.get('replaced', 0)}"
+            )
             return dst
         return path
 
     # Build the argument list for Graph2SMILES preprocess
     # Optionally detokenize to temporary files
-    train_src_p = _maybe_detok(train_src, "train.src")
-    train_tgt_p = _maybe_detok(train_tgt, "train.tgt")
-    val_src_p = _maybe_detok(val_src, "val.src")
-    val_tgt_p = _maybe_detok(val_tgt, "val.tgt")
-    test_src_p = _maybe_detok(test_src, "test.src")
-    test_tgt_p = _maybe_detok(test_tgt, "test.tgt")
+    train_src_p = _maybe_detok(train_src, "train.src", is_src=True)
+    train_tgt_p = _maybe_detok(train_tgt, "train.tgt", is_src=False)
+    val_src_p = _maybe_detok(val_src, "val.src", is_src=True)
+    val_tgt_p = _maybe_detok(val_tgt, "val.tgt", is_src=False)
+    test_src_p = _maybe_detok(test_src, "test.src", is_src=True)
+    test_tgt_p = _maybe_detok(test_tgt, "test.tgt", is_src=False)
 
     g2s_cli = [
         "--model", args.model,
