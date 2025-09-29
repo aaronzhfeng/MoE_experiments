@@ -191,10 +191,17 @@ watch -n 2 'squeue -j <JOBID>'
 # Live follow last 50 lines of the job's log (default path from job_2.sh)
 watch -n 1 'tail -n 10 logs/moe-ord-<JOBID>.out'
 
-watch -n 5 'tail -n 10 logs/moe-ord-747367.out'
+watch -n 5 'tail -n 1 logs/moe-preproc-748176.out'
 
 # Or just tail the full log
 tail -n 200 -f logs/moe-ord-<JOBID>.out
+
+# Best active
+tail -f /new-stg/home/aaron/MoE_experiments/logs/moe-preproc-$(squeue -u $USER -o %i -h | head -n1).out
+
+tail -f /new-stg/home/aaron/MoE_experiments/logs/moe-train-$(squeue -u $USER -o %i -h | head -n1).out
+
+tail -f /new-stg/home/aaron/MoE_experiments/logs/moe-ord-$(squeue -u $USER -o %i -h | head -n1).out
 
 # If the log file isn't created yet, wait for it then follow
 while [ ! -f "logs/moe-ord-<JOBID>.out" ]; do sleep 1; done; tail -f logs/moe-ord-<JOBID>.out

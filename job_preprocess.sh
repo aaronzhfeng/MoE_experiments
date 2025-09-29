@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J moe-ord
+#SBATCH -J moe-preproc
 #SBATCH -p gpu
 #SBATCH -N 1
 #SBATCH --ntasks=1
@@ -54,23 +54,3 @@ print("torch:", torch.__version__)
 print("cuda_available:", torch.cuda.is_available())
 print("CUDA_VISIBLE_DEVICES:", os.environ.get("CUDA_VISIBLE_DEVICES"))
 PY
-
-# ---- Train MoE (smiles + graph) ----
-srun python -u -m hetero_moe.training.train_moe \
-  --config hetero_moe/configs/moe.yaml \
-  --train_bin hetero_moe/data/processed/ord/graph2smiles_npz/train_0.npz \
-  --valid_bin hetero_moe/data/processed/ord/graph2smiles_npz/val_0.npz \
-  --save_path runs/moe/ord_smiles_graph.pt \
-  --epochs 5 --batch_size 32 --device cuda \
-  --num_workers 4 --pin_memory --persistent_workers \
-  --log_every 100
-
-# ---- Evaluate on test set ----
-python -m hetero_moe.evaluation.eval_moe \
-  --test_bin hetero_moe/data/processed/ord/graph2smiles_npz/test_0.npz \
-  --load_path runs/moe/ord_smiles_graph.pt.best \
-  --vocab_file hetero_moe/data/processed/ord/graph2smiles_npz/vocab_smiles.txt \
-  --beam_size 5 --k 5 \
-  --out runs/moe/ord_eval_results.json
-
-

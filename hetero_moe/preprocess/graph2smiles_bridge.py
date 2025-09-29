@@ -30,16 +30,19 @@ def _get_repo_root() -> str:
 
 
 def _import_graph2smiles_preprocess():
-    repo_root = _get_repo_root()
-    g2s_dir = os.path.join(repo_root, "references", "Graph2SMILES")
-    if g2s_dir not in sys.path:
-        sys.path.insert(0, g2s_dir)
+    """Import Graph2SMILES preprocess module from local copy with fixes."""
+    # Add local graph2smiles_utils to path so it can be imported by preprocess
+    utils_dir = os.path.join(os.path.dirname(__file__), "graph2smiles_utils")
+    if utils_dir not in sys.path:
+        sys.path.insert(0, utils_dir)
+    
+    # Import our local copy of preprocess.py instead of the reference
     try:
         import preprocess as g2s_pre
     except Exception as exc:  # pragma: no cover
         raise RuntimeError(
-            f"Failed to import Graph2SMILES preprocess module from {g2s_dir}. "
-            f"Ensure the references/Graph2SMILES repo is present."
+            f"Failed to import local Graph2SMILES preprocess module from {utils_dir}. "
+            f"Ensure the local copy is present."
         ) from exc
     return g2s_pre
 
@@ -255,7 +258,25 @@ def main() -> None:
     g2s_args = parser.parse_args(g2s_cli)
 
     # Run preprocessing
+    print("=== STARTING GRAPH2SMILES PREPROCESSING ===")
+    print(f"Preprocessing started at: {__import__('datetime').datetime.now()}")
+    
     g2s_pre.preprocess_main(g2s_args)
+    
+    print("=== GRAPH2SMILES PREPROCESSING COMPLETED ===")
+    print(f"Preprocessing finished at: {__import__('datetime').datetime.now()}")
+    
+    # Verify output files
+    import glob
+    npz_files = glob.glob(os.path.join(args.out_dir, "*.npz"))
+    if npz_files:
+        print("✅ Preprocessing output files created:")
+        for npz_file in sorted(npz_files):
+            size_mb = os.path.getsize(npz_file) / (1024 * 1024)
+            print(f"  - {os.path.basename(npz_file)}: {size_mb:.1f} MB")
+    else:
+        print("❌ No .npz files found in output directory!")
+        sys.exit(1)
 
 
 if __name__ == "__main__":  # pragma: no cover
